@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ff6347"><title>温湿度手记</title><link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAF8ElEQVR42o2XX4gkVxXGf+dWVf+p6fmzs7uKiwaVxKhxhZAEn3QxwWBiBF9aIipRDFEfFOKfB0EZBh/EBwlCjBLMkigi2qLBgJJVo+tTCEHjPizRN1E3Zt2d9Ez3TE93V93jw7k1VT1dw3QzDT23q+/3ne9859xzhUMvPXculosXM4556cPdNpNpSjZaJpMVIreG5mt4PUkUraO6hpNr4P7G/vB5eerivoIACGixjxxsCIKCCKrdbsTJwR14uQ3lNPh1VNZQ1nGsoLqKyjL4DkgbtI1zESLgpLot5DmIvIzjUfnBb78HoIqIGAk5AA/M9KG7P43EDwNniRyIgAbCqsZdtfKm8j22KGWEIBGRg0YM4+w35Mn9cv7XAw07i4KwsSFcviycGD5BEj/ANIcsU5CcGa1UApBgf3JYyfp84UFz2s2EyfQ5zizfw2Vyej3v6HadbG56VrZ/SCN+gNFkSpZ5RAQhPnhDDBKBRIg4BIeIHAtu9BwiCaPxhGZyJ//a/pr0ejk/7zqL68F7P0oz+hmjyRQhYZGXOMgziKJgKT3+N4onElDdRvVGeeLCltOHbkvQ/OtkuSLqFgJXhfEIWilMxuBzFiONI/dKIzlB5O4CcOQnb0W4hSw3wxy7iUA2he6D8K3z8KkvzaHgIlOofgMzqec9RsC524kjB+oXAp+M4cwN8OGPw+o6vP8+uPGdsD8yYPUw3DaFROpUCCbWU0ZA9fWL+GiGhPcwnRiYeuisWFp8BkkD7voI3PQuIzVHQiWU8BpAjMjgWMCCugTz7Y+MQNKwr9JlM2Gew+e+Cre/zwz67a/Ayy9BM50V2FrQWqHAtdBQpF7yCYz3YX8PplNwLvw/Kp9b6hh4uwM3nTVTRjG87az93kkV3BQQVoIC8ZaxO6RVke83vRU++UXY6cOPvwvDHTPhuEpg2Z6fjmHQh9UTFmarXZMCKTroim50GzG59om02tVKAnkGH/s83PxuW7t6BX7yqJXfaLd8Nu2E6shMqQJoabnOhEWjXuLq3pKj6fv4mkJWNVdHsZnOe1g/XTagvQqBzoqlJs9gbzivjNbsLaQQdxxed0BGQSqd6XRZBoNt29w5k9Q5y3cVKF0ysj6fJZZ2bH2eAXjaTPdXHHF7ADqqrUT18xHFsQHtDmaBCqWGO7PEoqg8LYskKOAkQaJVx6nVXXDDIJVyeFKoArVSA1KdJdZegjgJ67uz60lymIDhOAHJTzjZfGof0YGloEaq0W7pgaUONJq2YTXSVloCVdebLYgbgYDMmsACXi8a9g4izAwSGnxw7dXSA1luJSgyG2mzVRIb74WuGPpCO7XPcigJIoBbjwNYf84DPrfcvvAneOOb4S03w9M/st4QxbBbjbRpBJyDV/9jBCWykhzt2brWnqon48Cob4yk/lD/6fdNDRGLKBuUCqhaS24EFf5+CZ58BN5xK/zhafNQO7UUzjM4VSjwWil7TTtOO2UEXi2i0W45FwKkAaTZgt/9Ci780iqm1T4CHFBZMwKOrdqj8yAdfpaQBAIiZattVICWOpWW64+ej4TrLqRga7GZKkjeaMJ//w3PPWOn4qUX4B+XQrQaqiY/GtwOJMHxYpgJP/ReYv0zk8wjsuBY5q0jnj4DW1cNMK6p+Vp4UdQPieTtTkFYTl8ky/9JHIUResGhNGnA/65YGhYDB9WMVsMRyWPy+LOvODbORfJIbwTyHRqxA80Wno6KCoDFIvc6pdVIGI9fguSburHhyovJLZeFC4NnaCb3sDeeIhLPHdFHbVxtsQeXvDCAahjDnItoJjDN/0o2uU/O//6KboRRpbia8YkPpLSjX9BsfJDxBHLvZ69ZFRMhghQUQzUIZWXIoRkny/soT5J0viGP9Ya6gZNN/MzlVIqT+rP3fhnVLyByQ215FvXvFbxOcYxQ9hAZgg5AtlG2cbyGcB3kL+D/KI8/+wpAAT53p9PK+KCfuXud2N2Jujvw/g04GeL1GiLXQbaQfAtxfXLfJ2ntQDbkdemubPYmR+aq243o9Xx1RPk/T923X9c0rngAAAAASUVORK5CYII="><style>
+:root{--accent:#FF6347;--ink:#191b21;--muted:#636872;--line:#e4e5e8;--blue:#327f99;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:#f7f8fa;font-size:16px;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,select,input,a{font:inherit;color:inherit}button,a,input,select{touch-action:manipulation}button,select,a[href]{cursor:pointer}button{border:0;background:none}a{text-decoration:none}button:disabled,a[aria-disabled=true]{opacity:.42;cursor:default;pointer-events:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,#plot:focus-visible{outline:3px solid #d64c33;outline-offset:3px}[hidden]{display:none!important}.wrap{width:min(1100px,calc(100% - 64px));margin:auto}header{border-bottom:1px solid var(--line);background:#ffffffec}.nav,.brand,nav,.actions,.picker,.cardhead,.seg,.chartfoot,.steps,.dialoghead,.pages,.tools{display:flex;align-items:center}.nav{height:66px;justify-content:space-between}.brand{font-size:19px;letter-spacing:.055em;font-weight:750;gap:10px}.brandmark{background:var(--accent);border-radius:9px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;gap:3px;transform:rotate(-4deg)}.brandmark b{width:3px;border-radius:5px;background:white;height:8px}.brandmark b:nth-child(2){height:18px}.brandmark b:nth-child(3){height:12px}nav{gap:28px;font-size:14px;font-weight:550}nav button{font-size:inherit;border:1px solid var(--line);background:white;padding:7px 14px;border-radius:20px}.hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:34px 6% 33px 2%;min-height:266px}.intro h1{font-size:clamp(44px,5.4vw,72px);line-height:1.16;letter-spacing:.045em;margin:12px 0}.intro h1 span{color:var(--accent)}p,.chartfoot{color:var(--muted);line-height:1.6}.intro p{margin:0 0 20px}.actions{gap:10px}.primary,.secondary,.pages button,#close,.steps button{border-radius:12px;padding:10px 16px;font-weight:600;font-size:14px}.primary{background:var(--accent);color:#24100d}.primary:hover{background:#ff785f}.secondary,.pages button,.steps button,#close{background:white;border:1px solid var(--line)}.secondary:hover,.pages button:hover{background:#f6f6f7}.art{width:235px;height:188px;position:relative;display:grid;place-items:center;isolation:isolate}.orbit{position:absolute;width:234px;height:118px;border-radius:50%;background:radial-gradient(ellipse,#ffb39e85,transparent 70%);bottom:6px;z-index:-1}.sensor{width:158px;height:158px;display:grid;place-items:center;border:1px solid #d9d8d4;border-radius:19px;background:linear-gradient(145deg,#fff 12%,#faf9f7 72%,#efede9);box-shadow:inset 0 -2px 2px #d7d5d0,0 6px 9px #514b4315,0 14px 22px #82665b24}
+.lcd{display:block;width:104px;height:104px;border:1px solid #a3a79c;border-radius:4px;background:linear-gradient(150deg,#c1c6b9,#d2d7ca 80%);box-shadow:inset 1px 2px 3px #6d76652b;color:#373e35}
+.lcd-idle{opacity:.045}
+.caption{position:absolute;bottom:-3px;font-size:12px;color:#60626a}.card{padding:27px 30px 20px;background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 3px 18px #1e212803;margin-bottom:22px;scroll-margin:18px}.cardhead,.chartfoot,.dialoghead{justify-content:space-between;gap:12px}h2,h3{margin:0;letter-spacing:.045em}h2{font-size:25px}h3{font-size:18px}p{margin:5px 0;font-size:14px}.seg{background:#f0f1f3;border-radius:11px;padding:3px;gap:2px}.seg button{padding:6px 14px;font-size:14px;border-radius:8px}.seg .on{background:white;box-shadow:0 1px 4px #1c202021;font-weight:650}.chartWrap{position:relative;height:225px}canvas{width:100%;height:100%;display:block}.chartfoot{font-size:13px;margin-top:9px}.steps{gap:5px}.steps button{padding:2px 9px;font-size:20px}.steps input,form input{border:1px solid var(--line);border-radius:8px;background:#fff;padding:5px;font-size:14px}.scroll{overflow:auto;margin-top:18px}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:14px;font-variant-numeric:tabular-nums}td,th{padding:10px 12px;text-align:right;border-bottom:1px solid #ededf0}th{font-size:13px;color:var(--muted);background:#f7f8fa;font-weight:550}td:first-child,th:first-child{text-align:left}.pages{justify-content:flex-end;gap:8px;margin-top:12px}.pages button{padding:6px 13px}.notice{padding:10px 16px;background:#fff3ed;border-radius:12px;margin:0 0 14px}.dialoghead{margin-bottom:15px}dialog{width:min(450px,94vw);max-height:90vh;border:1px solid var(--line);border-radius:22px;padding:24px;color:var(--ink);box-shadow:0 20px 90px #25283130}dialog::backdrop{background:#20232b55;backdrop-filter:blur(3px)}#close{padding:2px 10px;font-size:20px}#known{margin-bottom:20px}.knownrow{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:8px 0;font-size:14px}.knownrow small{color:var(--muted)}dialog p{margin:8px 0 12px}form{display:grid;gap:12px;margin:16px 0}form label{display:grid;gap:5px;font-size:14px}form input{padding:9px}.tools{border-top:1px solid var(--line);padding-top:12px;gap:16px;font-size:14px}.tools a,.tools button,#found button{color:#a63a25}#found button{padding:6px;margin:6px 0}main{padding-bottom:32px}
+@media(max-width:690px){.wrap{width:calc(100% - 26px)}.nav{height:56px}nav{gap:12px}.hero{padding:25px 4px;min-height:222px}.art{width:105px;height:120px;flex-shrink:0}.sensor{transform:scale(.64);position:absolute}.orbit{width:125px;height:70px}.caption{display:none}.actions{gap:6px}.actions button{padding:8px 10px}.card{padding:18px 14px;border-radius:18px}.cardhead,.chartfoot{flex-wrap:wrap}.seg button{padding:6px 12px}.chartWrap{height:200px}.chartfoot{gap:6px}.intro p{font-size:13px}.pages button{font-size:13px}nav a{display:none}}
+
+
+.knownrow{align-items:center}.device-id{display:grid;gap:3px;min-width:0;overflow-wrap:anywhere}.edit-alias{flex:none;color:#a63a25;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:white}#aliasForm{padding:14px;background:#f6f7f8;border-radius:12px}.alias-actions{display:flex;gap:8px;justify-content:flex-end}
+
+.picker{display:inline-flex;position:relative;max-width:100%;vertical-align:top}
+#device{display:flex;align-items:center;gap:9px;max-width:min(320px,54vw);padding:7px 13px;background:white;border:1px solid #dfe1e5;border-radius:22px;font-size:14px;line-height:1.4;color:var(--ink)}
+#device:hover,#device[aria-expanded=true]{border-color:#c5c8cd;background:#fdfdfd}
+#device:focus-visible{outline:2px solid #818993;outline-offset:3px}
+#deviceName,#deviceOptions span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+#deviceSuffix,#deviceOptions small{color:var(--muted);font-size:12px;letter-spacing:.025em;font-variant-numeric:tabular-nums;white-space:nowrap}
+#device i{width:7px;height:7px;flex:none;margin:0 1px 3px 3px;border:solid #707781;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+#device[aria-expanded=true] i{transform:rotate(225deg);margin-bottom:-3px}
+#deviceOptions{position:absolute;top:calc(100% + 7px);left:0;z-index:5;list-style:none;margin:0;padding:5px;width:max-content;min-width:100%;max-width:min(340px,84vw);max-height:230px;overflow:auto;background:white;border:1px solid var(--line);border-radius:15px;box-shadow:0 8px 24px #22283218,0 2px 6px #22283208}
+#deviceOptions li{display:grid;grid-template-columns:minmax(0,1fr) auto 14px;gap:10px;align-items:center;padding:9px 10px;border-radius:10px;cursor:pointer;font-size:14px}
+#deviceOptions li.highlight,#deviceOptions li:hover{background:#f4f5f7}
+#deviceOptions [aria-selected=true]::after{content:"";width:6px;height:10px;justify-self:center;border:solid #c34b34;border-width:0 2px 2px 0;transform:rotate(45deg)}
+
+.resolution{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:12px;color:var(--muted);font-size:14px}
+.trend-series{margin-top:16px}.trend-series+.trend-series{padding-top:14px;border-top:1px solid var(--line)}
+.series-head{display:flex;align-items:baseline;gap:10px;min-height:30px;flex-wrap:wrap}
+.series-head h3{font-size:16px}.series-head h3::before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--accent)}
+.humidity-series h3::before{background:var(--blue)}
+.sample-time,.series-head strong{white-space:nowrap;font-variant-numeric:tabular-nums}
+.sample-time{color:var(--muted);font-size:13px}.series-head strong{margin-left:auto;font-size:17px}
+.trend-series .chartWrap{height:166px}.chartWrap:focus-visible{outline:2px solid #939aa3;outline-offset:2px;border-radius:4px}
+@media(max-width:540px){.series-head{display:grid;grid-template-columns:1fr auto;gap:2px 6px}.sample-time{grid-row:2;grid-column:1/-1}.series-head strong{grid-column:2;grid-row:1}.trend-series .chartWrap{height:144px}.resolution{justify-content:flex-start}}
+
+</style></head>
+<body><header><div class="wrap nav"><a class="brand" href="#top"><i class="brandmark" aria-hidden="true"><b></b><b></b><b></b></i>温湿度手记</a><nav><a href="#trends">趋势</a><a href="#records">记录</a><button id="manage">设备管理</button></nav></div></header>
+<main id="top" class="wrap">
+<section class="hero"><div class="intro"><div class="picker" id="picker">
+<button type="button" id="device" role="combobox" aria-label="当前设备" aria-expanded="false" aria-haspopup="listbox" aria-controls="deviceOptions" disabled><span id="deviceName">暂无设备</span><small id="deviceSuffix"></small><i aria-hidden="true"></i></button>
+<ul id="deviceOptions" role="listbox" aria-label="选择设备" hidden></ul></div>
+<h1>环境<span>趋势</span></h1><p id="summary">正在读取本地记录…</p>
+<div id="archiveActions"><div class="actions"><button class="secondary" id="openFolder">打开 data 文件夹</button><button class="secondary" id="importCsv">查看 CSV</button></div><input type="file" accept=".csv,text/csv" multiple hidden id="csvFiles"><p><span id="archiveMode"></span> <span id="capability"></span></p></div>
+<div class="actions"><button class="primary" id="sync">刷新蓝牙数据</button><button class="secondary" id="add">＋ 添加设备</button></div></div>
+<div class="art"><div class="orbit"></div><div class="sensor">
+<svg class="lcd" viewBox="0 0 120 120" role="img" aria-labelledby="lcdTitle">
+  <title id="lcdTitle">温湿度计，暂无记录</title>
+  <g id="lcdT" fill="currentColor"></g>
+  <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="bevel">
+    <path id="lcdTransfer" class="lcd-idle" d="m103 24 7 7-5 4V21l5 4-7 7" stroke-width="1.8"/>
+    <g stroke-width="1.8"><circle cx="101" cy="49" r="1.5"/><path d="M112 50h-7v10h7"/></g>
+    <g id="lcdFace" class="lcd-idle" stroke-width="2.5">
+      <path d="M15 77q-5 10 0 20m32-20q5 10 0 20"/>
+      <path id="lcdExpression" d="m19 84 3-3 3 3m12 0 3-3 3 3m-16 9h8"/>
+    </g>
+    <g stroke-width="1.7"><path d="m104 96 7-10"/><circle cx="104" cy="87" r="1.5"/><circle cx="111" cy="95" r="1.5"/></g>
+    <g class="lcd-idle" stroke-width="1.5"><rect x="54" y="106" width="11" height="5" rx="1"/><path d="M66.5 107v3"/></g>
+  </g>
+  <g id="lcdH" fill="currentColor"></g>
+</svg></div><div class="caption" id="lcdCaption">最近一小时 · 最高值</div></div></section>
+<p class="notice" id="status" role="status" hidden></p>
+<section id="trends" class="card"><div class="cardhead"><div><h2>历史趋势</h2><p id="dates"></p></div><div class="seg" id="period" aria-label="时间范围"><button data-p="day">日</button><button data-p="week">周</button><button data-p="month">月</button><button data-p="half">半年</button><button data-p="year">年</button><button data-p="all">全部</button></div></div>
+<div class="resolution" id="resolution" hidden><span>显示单位</span><div class="seg"><button data-unit="hour" hidden>按小时</button><button data-unit="day">按日</button><button data-unit="month">按月</button></div></div>
+<div class="trend-series">
+  <div class="series-head"><h3>温度</h3><span class="sample-time"></span><strong id="rangeT">—</strong></div>
+  <div class="chartWrap" tabindex="0" aria-label="温度趋势。滚轮平移时间，左右方向键查看同期读数。"><canvas id="temperatureChart"></canvas></div>
+</div>
+<div class="trend-series humidity-series">
+  <div class="series-head"><h3>相对湿度</h3><span class="sample-time"></span><strong id="rangeH">—</strong></div>
+  <div class="chartWrap" tabindex="0" aria-label="相对湿度趋势。滚轮平移时间，左右方向键查看同期读数。"><canvas id="humidityChart"></canvas></div>
+</div>
+<div class="chartfoot"><span id="legend"></span><div class="steps"><button id="prev" aria-label="上一周期">‹</button><input type="date" id="date" aria-label="起始日期"><button id="next" aria-label="下一周期">›</button></div></div></section>
+<section id="records" class="card"><div class="cardhead"><div><h2>小时记录</h2><p id="tableInfo"></p></div><a class="secondary" id="download" href="#">导出设备 CSV</a></div><div class="scroll"><table><thead><tr><th>时段结束 · 北京时间</th><th>最低温度</th><th>最高温度</th><th>最低湿度</th><th>最高湿度</th></tr></thead><tbody id="rows"></tbody></table></div><div class="pages"><button id="previousPage">上一页</button><button id="nextPage">下一页</button></div></section>
+</main>
+<dialog id="dialog"><div class="dialoghead"><h2>设备管理</h2><button id="close" aria-label="关闭">×</button></div><div id="known"></div>
+<form id="aliasForm" hidden><label>修改设备别名<input id="aliasName" required maxlength="60"></label><small id="aliasAddress"></small><div class="alias-actions"><button type="button" class="secondary" id="cancelAlias">取消</button><button class="primary" id="saveAlias">保存别名</button></div></form><h3>添加温湿度计</h3><p id="pairHelp">将温湿度计放在电脑旁，退出米家设备页。首次使用此浏览器时，选择实物，再关联已有档案或新建设备。</p>
+<button class="secondary" id="scan">选择蓝牙设备</button><form id="form"><label id="archiveTargetLabel">归档目标<select id="archiveTarget"></select></label><label><span id="macLabel">已知 MAC 地址（可选）</span><input id="mac" placeholder="AA:BB:CC:DD:EE:FF" maxlength="17"></label><label>设备名称<input id="name" required placeholder="例如：卧室" maxlength="60"></label><button class="primary">保存设备</button></form><p role="status" id="dialogStatus"></p><div class="tools"><a href="#" id="allcsv">导出总表</a><button id="merge">重新合并</button></div></dialog>
+<script>
+"use strict";
+const Archive = (() => {
+  const fields = ["设备记录序号","时段结束时间（北京时间，估算）","最低温度（℃）","最高温度（℃）","最低相对湿度（%）","最高相对湿度（%）","设备计时（秒）"];
+  const masterName = "all_devices.csv";
+  const equal = (a,b) => a.length===b.length && a.every((v,i)=>v===b[i]);
+  const order = (a,b) => Date.parse(a[1])-Date.parse(b[1]) || Number(a[0])-Number(b[0]);
+  function name(value) {
+    const text = String(value ?? "").trim();
+    if(!text || text.length>60 || /^[=+@-]|[\x00-\x1f]/.test(text)) throw Error("请输入有效的设备别名（1–60 字）。");
+    return text;
+  }
+  function id(value) {
+    if(/^web-[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$/i.test(value)) return value.toLowerCase();
+    const address=String(value).replaceAll("-",":").toUpperCase();
+    if(!/^(?:[A-F\d]{2}:){5}[A-F\d]{2}$/.test(address)) throw Error("无法识别档案中的设备标识。");
+    return address;
+  }
+  function csvRows(text) {
+    text=text.replace(/^\uFEFF/,"");
+    const rows=[]; let row=[], cell="", quoted=false, closed=false;
+    for(let i=0;i<text.length;i++){
+      const c=text[i];
+      if(quoted){
+        if(c!=='"'){cell+=c;continue}
+        if(text[i+1]==='"'){cell+='"';i++;continue}
+        quoted=false;closed=true;continue;
+      }
+      if(c===","){row.push(cell);cell="";closed=false;continue}
+      if(c==="\r" || c==="\n"){
+        if(c==="\r" && text[i+1]==="\n")i++;
+        row.push(cell);if(row.length>1 || cell)rows.push(row);
+        row=[];cell="";closed=false;continue;
+      }
+      if(closed || (c==='"' && cell))throw Error("CSV 引号格式不正确。");
+      if(c==='"')quoted=true;else cell+=c;
+    }
+    if(quoted)throw Error("CSV 引号未闭合。");
+    if(row.length || cell || closed){row.push(cell);rows.push(row)}
+    return rows;
+  }
+  function parse(text, fallback) {
+    const [header,...records]=csvRows(text);
+    const full=header && equal(header.slice(2),fields) && header[0]==="设备名称" && ["蓝牙地址","设备标识"].includes(header[1]);
+    if(!header || (!full && !equal(header,fields)))throw Error("CSV 表头不属于温湿度手记。");
+    return records.map((row,index)=>{
+      const line=index+2;
+      if(row.length!==header.length)throw Error("CSV 第 "+line+" 行列数异常。");
+      const values=full?row.slice(2):row;
+      const [seq,time,lo,hi,dry,wet,seconds]=values;
+      if(!/^\d+$/.test(seq) || !/^\d+$/.test(seconds) || !/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?(?:Z|[+-]\d\d:\d\d)$/.test(time) ||
+         !Number.isFinite(Date.parse(time)) || ![lo,hi,dry,wet].every(v=>/^-?\d+(?:\.\d+)?$/.test(v)&&Number.isFinite(+v)) ||
+         +lo>+hi || +dry<0 || +wet>100 || +dry>+wet)throw Error("CSV 第 "+line+" 行记录无效。");
+      const address=full?id(row[1]):fallback?.address;
+      if(!address || (fallback?.strict && address!==fallback.address))throw Error("记录与所在设备目录不符。");
+      return {address,name:full?name(row[0]):fallback.name,values};
+    });
+  }
+  function encode(devices) {
+    const lines=[];
+    let usesKey=false;
+    for(const device of devices){
+      usesKey ||= device.address.startsWith("web-");
+      for(const row of device.rows)lines.push([device.name,device.address,...row]);
+    }
+    lines.sort((a,b)=>Date.parse(a[3])-Date.parse(b[3]) || a[1].localeCompare(b[1]));
+    lines.unshift(["设备名称",usesKey?"设备标识":"蓝牙地址",...fields]);
+    const escape=v=>/[",\r\n]/.test(v)?'"'+String(v).replaceAll('"','""')+'"':String(v);
+    return "\uFEFF"+lines.map(row=>row.map(escape).join(",")).join("\r\n")+"\r\n";
+  }
+  function merge(existing,incoming) {
+    const seen=new Map(), rows=[];
+    for(const row of [...existing,...incoming]){
+      const key=Number(row[0])+"/"+Number(row[6]), time=Date.parse(row[1]);
+      const list=seen.get(key) || [];
+      const match=list.find(entry=>Math.abs(entry.time-time)<1800000);
+      if(match){
+        if(![2,3,4,5].every(i=>Number(match.row[i])===Number(row[i])))throw Error("记录 "+row[0]+" 与已有数据冲突，请检查所选设备。");
+        continue;
+      }
+      list.push({time,row});seen.set(key,list);rows.push(row);
+    }
+    return rows.sort(order);
+  }
+  async function optional(dir,key,directory=false){
+    try{return await (directory?dir.getDirectoryHandle(key):dir.getFileHandle(key))}
+    catch(error){if(error.name==="NotFoundError")return null;throw error}
+  }
+  async function read(handle){return (await handle.getFile()).text()}
+  async function write(dir,key,text){
+    const previous=await optional(dir,key);
+    const handle=previous || await dir.getFileHandle(key,{create:true});
+    let stream;
+    try{
+      stream=await handle.createWritable();
+      await stream.write(text);
+      await stream.close();
+    }catch(error){
+      if(stream)await stream.abort().catch(()=>{});
+      if(!previous)await dir.removeEntry(key).catch(()=>{});
+      throw error;
+    }
+  }
+  function insertCsv(map,items) {
+    const groups=new Map();
+    for(const r of items){
+      if(!map.has(r.address))map.set(r.address,{address:r.address,name:r.name,rows:[]});
+      if(!groups.has(r.address))groups.set(r.address,[]);
+      groups.get(r.address).push(r.values);
+    }
+    for(const [address,rows] of groups){const d=map.get(address);d.rows=merge(d.rows,rows)}
+  }
+  async function load(root){
+    const map=new Map();
+    for await(const dir of root.values()){
+      if(dir.kind!=="directory")continue;
+      const meta=await optional(dir,"device.json");
+      if(!meta)continue;
+      const info=JSON.parse(await read(meta)),address=id(info.address);
+      if(dir.name.toLowerCase()!==address.replaceAll(":","").toLowerCase() || map.has(address))throw Error("设备目录和标识不一致。");
+      const device={...info,address,name:name(info.name),rows:[]};
+      map.set(address,device);
+      const files=[],history=await optional(dir,"history.csv"),raw=await optional(dir,"raw_exports",true);
+      if(history)files.push(history);
+      if(raw)for await(const f of raw.values())if(f.kind==="file" && f.name.endsWith(".csv"))files.push(f);
+      const rows=[];
+      for(const f of files){
+        try{for(const r of parse(await read(f),{...device,strict:true}))rows.push(r.values)}
+        catch(error){throw Error(f.name+"："+error.message)}
+      }
+      device.rows=merge([],rows);
+    }
+    const master=await optional(root,masterName);
+    if(master)insertCsv(map,parse(await read(master)));
+    return map;
+  }
+  async function persist(root,map,changed,rawRows){
+    const targets=changed?[map.get(changed)]:[...map.values()];
+    for(const device of targets){
+      const dir=await root.getDirectoryHandle(device.address.replaceAll(":",""),{create:true});
+      const {rows,...info}=device;
+      await write(dir,"device.json",JSON.stringify(info,null,2));
+      if(rawRows?.length){
+        const raw=await dir.getDirectoryHandle("raw_exports",{create:true});
+        await write(raw,"history_"+new Date().toISOString().replace(/[:.]/g,"-")+"_"+crypto.randomUUID().slice(0,8)+".csv",encode([{...device,rows:rawRows}]));
+      }
+      await write(dir,"history.csv",encode([device]));
+    }
+    await write(root,masterName,encode(map.values()));
+  }
+  return {load,persist,parse,encode,merge,insertCsv,id,name};
+})();
+
+</script>
+<script>
+"use strict";
+const SensorHistory=(()=>{
+  const uuid=short=>"ebe0"+short+"-7a0a-4b0c-8a1a-6ff2997da3a6";
+  function choose(){
+    if(!navigator.bluetooth?.requestDevice)throw Error("当前浏览器无法连接蓝牙，请用桌面 Chrome 打开；已有 CSV 仍可查看。");
+    // Some stock devices advertise MiBeacon without a local name.
+    return navigator.bluetooth.requestDevice({acceptAllDevices:true,optionalServices:[uuid("ccb0")]});
+  }
+  function unpack(view,origin){
+    if(view.byteLength!==14)throw Error("设备历史记录格式不匹配。");
+    const seq=view.getUint32(0,true),tick=view.getUint32(4,true);
+    const high=view.getInt16(8,true)/10,wet=view.getUint8(10),low=view.getInt16(11,true)/10,dry=view.getUint8(13);
+    if(low>high || dry>wet || wet>100)throw Error("设备返回了无效的温湿度范围。");
+    const time=new Date(origin+tick*1000+8*3600000).toISOString().slice(0,19)+"+08:00";
+    return [seq,time,low.toFixed(1),high.toFixed(1),dry,wet,tick].map(String);
+  }
+  async function collect(device,report,onTransfer=()=>{}){
+    let history,onPacket,onLost,timer;
+    try{
+      const server=await device.gatt.connect();
+      const service=await server.getPrimaryService(uuid("ccb0"));
+      const clock=await (await service.getCharacteristic(uuid("ccb7"))).readValue();
+      const origin=Date.now()-clock.getUint32(0,true)*1000;
+      const counts=await (await service.getCharacteristic(uuid("ccb9"))).readValue();
+      const retained=counts.getUint32(4,true);
+      if(!retained)return [];
+      history=await service.getCharacteristic(uuid("ccbc"));
+      onTransfer(true);
+      report("已连接，准备读取 "+retained.toLocaleString()+" 条历史记录。");
+      const records=new Map();
+      await new Promise((resolve,reject)=>{
+        const resetTimer=()=>{
+          clearTimeout(timer);
+          timer=setTimeout(()=>reject(Error("设备连续 35 秒没有返回新记录。已读取 "+records.size+" / "+retained+" 条，请重新刷新。")),35000);
+        };
+        onLost=()=>reject(Error("蓝牙连接已断开，请靠近设备后重新刷新。"));
+        onPacket=event=>{
+          try{
+            const row=unpack(event.target.value,origin);
+            if(records.has(row[0]))return;
+            records.set(row[0],row);
+            resetTimer();
+            if(records.size===1 || records.size%50===0)report("已读取 "+records.size.toLocaleString()+" / "+retained.toLocaleString()+" 条");
+            if(records.size===retained)resolve();
+          }catch(error){reject(error)}
+        };
+        history.addEventListener("characteristicvaluechanged",onPacket);
+        device.addEventListener("gattserverdisconnected",onLost);
+        resetTimer();
+        history.startNotifications().catch(reject);
+      });
+      return [...records.values()];
+    }finally{
+      onTransfer(false);
+      clearTimeout(timer);
+      if(onPacket)history.removeEventListener("characteristicvaluechanged",onPacket);
+      if(onLost)device.removeEventListener("gattserverdisconnected",onLost);
+      if(device.gatt.connected)device.gatt.disconnect();
+    }
+  }
+  return {choose,collect};
+})();
+
+</script>
+<script>
+"use strict";
+const standalone = (()=>{
+  let root=null,archive=new Map(),busy=false,pending=null;
+  const connected=new Map();
+  const canWrite=()=>Boolean(root && !busy);
+  const hasBluetooth=Boolean(navigator.bluetooth?.requestDevice);
+  function records(address){
+    return (archive.get(address)?.rows || []).map(r=>[r[1],...r.slice(2,6).map(Number)]);
+  }
+  function message(error){
+    if(error.name==="NotFoundError")return "没有选中设备或找不到历史服务。请确认型号为 LYWSD03MMC，并退出米家设备页。";
+    if(error.name==="SecurityError")return "浏览器限制了此次访问。请使用桌面 Chrome；若本地文件模式受限，可将同一 HTML 放在 HTTPS 静态站点上打开。";
+    if(error.name==="NotAllowedError")return "浏览器未授予所需权限。请重新选择设备或数据文件夹。";
+    return error.message || String(error);
+  }
+  function controls(){
+    $("sync").disabled=!canWrite() || !state.address || !hasBluetooth;
+    $("scan").disabled=!canWrite() || !hasBluetooth;
+    $("merge").disabled=!canWrite();
+    $("openFolder").disabled=busy || !window.showDirectoryPicker;
+    $("importCsv").disabled=busy;
+    $("add").disabled=!canWrite() || !hasBluetooth;
+    $("allcsv").disabled=busy || !archive.size;
+    $("form").hidden=!pending;
+    for(const el of $("known").querySelectorAll(".edit-alias"))el.disabled=!canWrite();
+    if(!root && !archive.size)$("summary").textContent="选择已有 data 文件夹继续归档，或打开 CSV 查看趋势。";
+    $("archiveMode").textContent=root?"数据目录："+root.name:archive.size?"CSV 查看模式":"尚未打开数据目录";
+    $("capability").textContent=!hasBluetooth?"此浏览器可查看 CSV。蓝牙刷新请使用桌面 Chrome。":
+      !window.showDirectoryPicker?"此浏览器无法直接写入目录，可选择 CSV 查看记录。":"";
+  }
+  async function redraw(reset=false){
+    if(!archive.has(state.address))state.address=archive.keys().next().value || "";
+    state.devices=Object.fromEntries([...archive].map(([key,d])=>[key,d.name]));
+    deviceList();
+    await loadRows(!reset);
+    controls();
+  }
+  async function run(work){
+    if(busy)return;
+    busy=true;controls();
+    try{await work()}catch(error){if(error.name!=="AbortError")msg(message(error))}
+    finally{busy=false;controls()}
+  }
+  async function openFolder(){
+    const selected=await window.showDirectoryPicker({id:"thermojournal",mode:"readwrite"});
+    const folder=selected.name.toLowerCase()==="data"?selected:await selected.getDirectoryHandle("data",{create:true});
+    const next=await Archive.load(folder);
+    root=folder;archive=next;pending=null;connected.clear();
+    await redraw(true);msg(next.size?"已打开数据目录。":"已打开空数据目录，可以添加设备。");
+  }
+  async function viewCsv(files){
+    if(!files.length)return;
+    const next=new Map();
+    for(const file of files){
+      const fallback={address:"web-"+crypto.randomUUID(),name:"导入记录 "+(next.size+1)};
+      Archive.insertCsv(next,Archive.parse(await file.text(),fallback));
+    }
+    root=null;archive=next;pending=null;connected.clear();
+    await redraw(true);msg("CSV 已打开。需要刷新蓝牙时，请打开可写的 data 文件夹。");
+  }
+  async function change(work){
+    if(!root)throw Error("请先打开可写的数据目录。");
+    const action=async()=>{
+      // Re-read inside the lock so another tab's recent export is preserved.
+      const fresh=await Archive.load(root);
+      await work(fresh);
+      archive=fresh;
+    };
+    if(navigator.locks)await navigator.locks.request("thermojournal-archive",action);
+    else await action();
+  }
+  function boundTo(map,device){
+    return [...map.values()].find(d=>d.browserIds?.includes(device.id));
+  }
+  function offer(device,requested){
+    const known=boundTo(archive,device);
+    if(known && requested && known.address!==requested)throw Error("选中的是「"+known.name+"」，请切换到对应设备。");
+    pending=device;
+    const target=$("archiveTarget");
+    target.replaceChildren(new Option("新建设备档案",""));
+    for(const d of archive.values())target.add(new Option(d.name+" · "+d.address.slice(-5),d.address));
+    target.value=known?.address || requested || "";
+    target.disabled=Boolean(known || requested);
+    $("mac").value="";$("mac").required=false;
+    updateForm();
+    $("form").hidden=false;
+    if(!$("dialog").open)$("dialog").showModal();
+    msg("已选中 "+(device.name || "蓝牙设备")+"。请核对实物与归档目标，保存关联后即可刷新。");
+  }
+  function updateForm(){
+    const existing=archive.get($("archiveTarget").value);
+    $("name").value=existing?.name || pending?.name || "温湿度计";
+    $("name").readOnly=Boolean(existing);
+    $("mac").parentElement.hidden=Boolean(existing);
+  }
+  async function register(){
+    if(!pending)throw Error("请先选择蓝牙设备。");
+    const device=pending, target=$("archiveTarget").value;
+    const key=target || ($("mac").value.trim()?Archive.id($("mac").value.trim()):"web-"+crypto.randomUUID());
+    const alias=Archive.name($("name").value);
+    await change(async fresh=>{
+      const linked=boundTo(fresh,device);
+      if(linked && linked.address!==key)throw Error("该设备已关联到另一个档案。");
+      if(!target && fresh.has(key))throw Error("该地址已有档案，请在归档目标中选择它。");
+      if(target && !fresh.has(key))throw Error("目标档案不存在，请重新打开目录。");
+      const d=fresh.get(key) || {address:key,name:alias,rows:[]};
+      d.browserIds=[...new Set([...(d.browserIds || []),device.id])];
+      fresh.set(key,d);
+      await Archive.persist(root,fresh,key);
+    });
+    connected.set(key,device);state.address=key;pending=null;
+    $("dialog").close();await redraw(true);msg("设备已关联，点击「刷新蓝牙数据」读取历史。");
+  }
+  async function sync(){
+    const key=state.address;
+    let device=connected.get(key);
+    if(!device){
+      device=await SensorHistory.choose();
+      if(boundTo(archive,device)?.address!==key){offer(device,key);return}
+      connected.set(key,device);
+    }
+    msg("正在连接 "+archive.get(key).name+"…");
+    const incoming=await SensorHistory.collect(device,msg,active=>$("lcdTransfer").classList.toggle("lcd-idle",!active));
+    let added=0;
+    await change(async fresh=>{
+      if(boundTo(fresh,device)?.address!==key)throw Error("设备关联发生变化，请重新选择。");
+      const d=fresh.get(key), old=d.rows.length;
+      d.rows=Archive.merge(d.rows,incoming);added=d.rows.length-old;
+      await Archive.persist(root,fresh,key,incoming);
+    });
+    await redraw(true);msg("刷新完成。读取 "+incoming.length+" 条，新增 "+added+" 条。");
+  }
+  async function rename(address,value){
+    const alias=Archive.name(value);
+    await change(async fresh=>{
+      const d=fresh.get(address);
+      if(!d)throw Error("找不到此设备。");
+      d.name=alias;await Archive.persist(root,fresh,address);
+    });
+  }
+  function download(address){
+    const devices=address?[archive.get(address)]:archive.values();
+    const link=document.createElement("a");
+    link.href=URL.createObjectURL(new Blob([Archive.encode(devices)],{type:"text/csv;charset=utf-8"}));
+    link.download=address?address.replaceAll(":","")+"_历史.csv":"温湿度总表.csv";
+    link.click();setTimeout(()=>URL.revokeObjectURL(link.href),30000);
+  }
+  async function start(){
+    $("archiveTarget").onchange=updateForm;
+    $("openFolder").onclick=()=>run(openFolder);
+    $("importCsv").onclick=()=>$("csvFiles").click();
+    $("csvFiles").onchange=e=>{const files=[...e.target.files];e.target.value="";run(()=>viewCsv(files))};
+    $("download").onclick=e=>{e.preventDefault();if(state.rows.length)download(state.address)};
+    $("allcsv").onclick=e=>{e.preventDefault();if(archive.size)download()};
+    $("dialog").addEventListener("close",()=>{pending=null;controls()});
+    await redraw(true);
+  }
+  return {records,start,run,rename,register,sync,
+    scan:async()=>offer(await SensorHistory.choose(),""),
+    merge:async()=>{await change(fresh=>Archive.persist(root,fresh));await redraw();msg("所有设备档案已重新合并。")}};
+})();
+
+</script>
+<script>
+"use strict";
+
+// Clockwise from the top bar, with the centre bar last.
+const lcdBars = [
+  "M2 0h14l-3 3H5z", "M17 1v13l-2 2-1-2V4z",
+  "M15 17l2 2v13l-3-3V19z", "M2 33l3-3h8l3 3z",
+  "M0 19l2-2 1 2v10l-3 3z", "M0 1l3 3v10l-1 2-2-2z",
+  "M2.5 16.5 5 15h7l2.5 1.5L12 18H5z"
+];
+const lcdGlyphs = {
+  "0":"abcdef", "1":"bc", "2":"abdeg", "3":"abcdg", "4":"bcfg",
+  "5":"acdfg", "6":"acdefg", "7":"abc", "8":"abcdefg", "9":"abcdfg", "-":"g"
+};
+
+function drawLcdNumber(group, value, right, top, maxWidth, scale) {
+  let offset = 0;
+  const parts = [];
+  for (const glyph of value) {
+    if (glyph === ".") {
+      parts.push('<rect x="' + offset + '" y="29" width="4" height="4"/>');
+      offset += 7;
+    } else {
+      const bars = lcdBars.map((path, i) => {
+        const active = lcdGlyphs[glyph].includes("abcdefg"[i]);
+        return '<path d="' + path + '"' + (active ? '' : ' class="lcd-idle"') + '/>';
+      });
+      parts.push('<g transform="translate(' + offset + ')">' + bars.join("") + '</g>');
+      offset += 20;
+    }
+  }
+  const width = offset - 3;
+  const scaleX = Math.min(scale, maxWidth / width);
+  group.setAttribute("transform", "translate(" + (right - width * scaleX) + " " + top + ") scale(" + scaleX + " " + scale + ")");
+  group.innerHTML = parts.join("");
+}
+
+function renderLcd(row) {
+  const temperature = row ? Number(row[2]).toFixed(1) : "--.-";
+  const humidity = row ? String(Math.round(row[4])) : "--";
+  drawLcdNumber($("lcdT"), temperature.length <= 6 ? temperature : "--.-", 96, 21, 91, 1.22);
+  drawLcdNumber($("lcdH"), humidity, 96, 74, 43, .72);
+
+  const comfortable = row && row[2] >= 19 && row[2] <= 27 && row[4] >= 20 && row[4] <= 85;
+  $("lcdFace").classList.toggle("lcd-idle", !row);
+  $("lcdExpression").setAttribute("d", comfortable || !row
+    ? "m19 84 3-3 3 3m12 0 3-3 3 3m-16 9h8"
+    : "M19 83h6m12 0h6m-16 10 4-4 4 4");
+  $("lcdTitle").textContent = row
+    ? "最近一条小时记录，最高温度 " + temperature + " °C，最高湿度 " + humidity + "%。按这两个最高值判断：" + (comfortable ? "舒适" : "超出舒适区间")
+    : "温湿度计，暂无记录";
+}
+
+</script>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const dayMs = 86400000, hourMs = dayMs/24;
+const state = {address:"", devices:{}, rows:[], period:"month", start:null, anchor:null, preferredDay:1, units:{week:"day",half:"day",year:"month"}, page:0, selected:-1};
+const iso = time => new Date(time).toISOString().slice(0,10);
+const num = n => n.toLocaleString("zh-CN",{maximumFractionDigits:1});
+const formatRange = (a,b,unit) => a===Infinity ? "—" : num(a)+" – "+num(b)+" "+unit;
+function msg(text) {
+  $("status").textContent=text; $("status").hidden=!text;
+  $("dialogStatus").textContent=text;
+}
+function bind(id,handler) {
+  $(id).addEventListener("click",async()=>{try{await handler()}catch(e){msg(e.message)}});
+}
+function shiftedDate(row) { return Date.parse(row[0])+8*hourMs; }
+const periodMonths={month:1,half:6,year:12};
+function midnight(time){return Math.floor(time/dayMs)*dayMs}
+function monthShift(time,months,preferredDay=new Date(time).getUTCDate()){
+  const d=new Date(time);
+  const first=Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+months,1);
+  const lastDay=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+months+1,0)).getUTCDate();
+  return first+(Math.min(preferredDay,lastDay)-1)*dayMs;
+}
+function naturalStart(time,period){
+  const d=new Date(time);
+  switch(period){
+    case "week":return midnight(time)-((d.getUTCDay()+6)%7)*dayMs;
+    case "month":return monthShift(time,0,1);
+    case "half":return Date.UTC(d.getUTCFullYear(),d.getUTCMonth()<6?0:6,1);
+    case "year":return Date.UTC(d.getUTCFullYear(),0,1);
+    default:return midnight(time);
+  }
+}
+function movePeriod(time,dir,period){
+  if(period==="day")return time+dir*dayMs;
+  if(period==="week")return time+dir*7*dayMs;
+  return monthShift(time,dir*periodMonths[period]);
+}
+function setWindow(start,anchor=start,preferredDay=new Date(start).getUTCDate()){
+  state.start=start;state.anchor=anchor;state.preferredDay=preferredDay;
+}
+function displayUnit(){
+  return state.units[state.period] || (state.period==="day"?"hour":"day");
+}
+function periodBounds(){
+  if(state.period==="all"){
+    const a=state.rows.length?shiftedDate(state.rows[0]):state.start;
+    const b=state.rows.length?shiftedDate(state.rows.at(-1)):a;
+    return [midnight(a),midnight(b)+dayMs,b-a>730*dayMs?0:dayMs];
+  }
+  const start=state.start;
+  const step={hour:hourMs,day:dayMs,month:0}[displayUnit()];
+  return [start,movePeriod(start,1,state.period),step];
+}
+let buckets=[], filtered=[], bounds=[], stepUnit="";
+const series=[
+  {canvas:"temperatureChart",readout:"rangeT",unit:"°C",color:"#ed543b",fill:"255,99,71",precision:.5},
+  {canvas:"humidityChart",readout:"rangeH",unit:"%",color:"#327f99",fill:"50,127,153",precision:1}
+];
+function groupRows(){
+  bounds=periodBounds();
+  const [start,end,step]=bounds;
+  stepUnit=step===hourMs?"小时":step===dayMs?"天":"月";
+  buckets=[];filtered=[];
+  for(let i=0,t=start;t<end;i++){
+    const next=step?t+step:monthShift(start,i+1);
+    buckets.push({t,end:Math.min(next,end),n:0,min:[Infinity,Infinity],max:[-Infinity,-Infinity]});
+    t=next;
+  }
+  let index=0;
+  for(const row of state.rows){
+    const time=shiftedDate(row);
+    if(time<start || time>=end)continue;
+    filtered.push(row);
+    while(index+1<buckets.length && buckets[index+1].t<=time)index++;
+    const bucket=buckets[index];
+    bucket.n++;
+    for(let k=0;k<series.length;k++){
+      bucket.min[k]=Math.min(bucket.min[k],row[1+2*k]);
+      bucket.max[k]=Math.max(bucket.max[k],row[2+2*k]);
+    }
+  }
+  series.forEach((item,k)=>{
+    item.low=buckets.reduce((v,b)=>Math.min(v,b.min[k]),Infinity);
+    item.high=buckets.reduce((v,b)=>Math.max(v,b.max[k]),-Infinity);
+  });
+}
+function axisLabel(t){
+  const d=new Date(t);
+  if(state.period==="day")return String(d.getUTCHours()).padStart(2,"0")+":00";
+  if(stepUnit==="小时")return (d.getUTCMonth()+1)+"/"+d.getUTCDate()+" "+String(d.getUTCHours()).padStart(2,"0")+":00";
+  if(stepUnit==="月" && d.getUTCDate()===1)return d.getUTCFullYear()+"/"+(d.getUTCMonth()+1);
+  return (d.getUTCMonth()+1)+"/"+d.getUTCDate();
+}
+function clockLabel(time){return new Date(time).toISOString().slice(0,16).replace("T"," ")}
+function draw(){
+  if(!bounds.length)return;
+  const focus=buckets[state.selected];
+  let label="时段范围";
+  if(focus){
+    if(stepUnit==="小时")label=clockLabel(focus.t);
+    else if(stepUnit==="月")label=iso(focus.t)+" 至 "+iso(focus.end-1);
+    else label=iso(focus.t);
+  }
+  document.querySelectorAll(".sample-time").forEach(span=>{span.textContent=label});
+  series.forEach((item,k)=>{
+    $(item.readout).textContent=focus&&!focus.n?"无记录":
+      formatRange(focus?focus.min[k]:item.low,focus?focus.max[k]:item.high,item.unit);
+    drawSeries(item,k);
+  });
+}
+const axisLabelWidth=42;
+const rightInset=1;
+function drawSeries(item,k){
+  const canvas=$(item.canvas), w=canvas.clientWidth,h=canvas.clientHeight;if(w<10 || !bounds.length)return;
+  const ratio=window.devicePixelRatio||1;canvas.width=Math.round(w*ratio);canvas.height=Math.round(h*ratio);
+  const ctx=canvas.getContext("2d");ctx.scale(ratio,ratio);
+  const l=axisLabelWidth,r=w-rightInset,top=15,bottom=h-28;
+  const {color,fill,unit,precision}=item;
+  ctx.font='12px "Segoe UI","Microsoft YaHei",sans-serif';
+  if(item.low===Infinity){ctx.fillStyle="#777a82";ctx.textAlign="center";ctx.fillText(state.address?"此时段没有记录":"添加设备后可查看趋势",w/2,h/2);return;}
+  let lo=item.low,hi=item.high;
+  const spacing=Math.max(precision,Math.ceil((hi-lo)/4/precision)*precision);
+  lo=Math.floor(lo/spacing)*spacing;hi=Math.max(lo+spacing,Math.ceil(hi/spacing)*spacing);
+  const x=i=>buckets.length===1?(l+r)/2:l+(r-l)*i/(buckets.length-1);
+  const y=v=>bottom-(bottom-top)*(v-lo)/(hi-lo);
+  ctx.textAlign="right";
+  for(let value=lo;value<=hi+.00001;value+=spacing){
+    ctx.fillStyle="#676b73";ctx.fillText(num(value)+unit,l-8,y(value)+4);ctx.strokeStyle="#e9eaed";ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(l,y(value));ctx.lineTo(r,y(value));ctx.stroke();
+  }
+  ctx.textAlign="center";
+  const ticks=Math.min(w<500?4:7,buckets.length);
+  for(let i=0;i<ticks;i++){
+    const j=ticks===1?0:Math.round(i*(buckets.length-1)/(ticks-1));
+    const label=axisLabel(buckets[j].t);
+    const halfWidth=ctx.measureText(label).width/2;
+    ctx.fillText(label,Math.min(r-halfWidth,Math.max(halfWidth,x(j))),h-6);
+  }
+  const gradient=ctx.createLinearGradient(0,top,0,bottom);
+  gradient.addColorStop(0,"rgba("+fill+",.37)");gradient.addColorStop(1,"rgba("+fill+",.07)");
+  for(let i=0;i<buckets.length;){
+    if(!buckets[i].n){i++;continue;}
+    const first=i;while(i<buckets.length&&buckets[i].n)i++;const last=i-1;
+    ctx.beginPath();ctx.moveTo(x(first),y(buckets[first].max[k]));
+    for(let j=first+1;j<=last;j++)ctx.lineTo(x(j),y(buckets[j].max[k]));
+    for(let j=last;j>=first;j--)ctx.lineTo(x(j),y(buckets[j].min[k]));
+    ctx.closePath();ctx.fillStyle=gradient;ctx.fill();
+    for(const key of ["min","max"]){
+      ctx.beginPath();ctx.moveTo(x(first),y(buckets[first][key][k]));
+      for(let j=first+1;j<=last;j++)ctx.lineTo(x(j),y(buckets[j][key][k]));
+      ctx.strokeStyle=key==="max"?color:"rgba("+fill+",.65)";ctx.lineWidth=key==="max"?2.4:1.5;ctx.stroke();
+      if(first===last){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x(first),y(buckets[first][key][k]),3,0,2*Math.PI);ctx.fill();}
+    }
+  }
+  const focus=buckets[state.selected];
+  if(focus){
+    const pos=x(state.selected);ctx.strokeStyle="#737782";ctx.setLineDash([3,4]);ctx.beginPath();ctx.moveTo(pos,top);ctx.lineTo(pos,bottom);ctx.stroke();
+
+  }
+}
+function table(){
+  const limit=8, end=filtered.length-state.page*limit, rows=filtered.slice(Math.max(0,end-limit),end).reverse();
+  $("rows").replaceChildren();
+  for(const r of rows){
+    const tr=document.createElement("tr");
+    for(const val of [r[0].slice(0,16).replace("T"," "),num(r[1])+" °C",num(r[2])+" °C",r[3]+"%",r[4]+"%"]){
+      const cell=document.createElement("td");cell.textContent=val;tr.append(cell);
+    }
+    $("rows").append(tr);
+  }
+  $("tableInfo").textContent=rows.length?"所选时段共 "+num(filtered.length)+" 条 · 第 "+(state.page+1)+" / "+Math.ceil(filtered.length/limit)+" 页":"此时段没有小时记录";
+  $("nextPage").disabled=end<=limit;$("previousPage").disabled=state.page===0;
+}
+function render(){
+  groupRows();state.selected=-1;state.page=0;
+  $("dates").textContent=stepUnit==="小时"?clockLabel(bounds[0])+" 至 "+clockLabel(bounds[1])+"（北京时间）":iso(bounds[0])+" 至 "+iso(bounds[1]-1);
+  $("legend").textContent="按"+stepUnit+"显示 · 色带上下沿为最高值和最低值";
+  $("date").value=iso(bounds[0]);$("date").disabled=$("prev").disabled=$("next").disabled=state.period==="all";
+  for(const b of $("period").children){b.classList.toggle("on",b.dataset.p===state.period);b.setAttribute("aria-pressed",b.dataset.p===state.period)}
+  $("resolution").hidden=!Object.hasOwn(state.units,state.period);
+  for(const b of $("resolution").querySelectorAll("button")){
+    b.hidden=b.dataset.unit!=="day" && b.dataset.unit!==(state.period==="week"?"hour":"month");
+    const on=b.dataset.unit===state.units[state.period];b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);
+  }
+  draw();table();
+}
+async function loadRows(keepDate=false){
+  const address=state.address;
+  const rows=address?standalone.records(address):[];
+  state.rows=rows;
+  if(!keepDate || state.start===null){
+    const anchor=midnight(rows.length?shiftedDate(rows.at(-1)):Date.now()+8*hourMs);
+    setWindow(naturalStart(anchor,state.period),anchor);
+  }
+  $("summary").textContent=rows.length?"已归档 "+num(rows.length)+" 条小时记录 · "+rows[0][0].slice(0,10)+" 起":address?"设备已登记，刷新蓝牙数据后可查看记录。":"添加第一台温湿度计，开始查看历史记录。";
+  renderLcd(rows.at(-1));
+  $("lcdCaption").textContent=rows.length?rows.at(-1)[0].slice(5,16).replace("T"," ")+" · 小时最高值":"最近一小时 · 最高值";
+  $("download").setAttribute("aria-disabled",!rows.length);
+  render();
+}
+function deviceList(){
+  const entries=Object.entries(state.devices);
+  closePicker();
+  $("deviceOptions").replaceChildren();$("known").replaceChildren();
+  for(const [address,name] of entries){
+    const option=document.createElement("li");
+    option.setAttribute("role","option");
+    option.dataset.address=address;
+    option.id="option-"+address.replaceAll(":","");
+    const label=document.createElement("span");
+    label.textContent=name;
+    const suffix=document.createElement("small");
+    suffix.textContent=address.slice(-5);
+    option.append(label,suffix);
+    $("deviceOptions").append(option);
+    const row=document.createElement("div");
+    row.className="knownrow";
+    const info=document.createElement("div");
+    info.className="device-id";
+    const small=document.createElement("small");
+    small.textContent=address;
+    info.append(name,small);
+    const edit=document.createElement("button");
+    edit.className="edit-alias";
+    edit.textContent="改别名";
+    edit.setAttribute("aria-label","修改 "+name+" 的别名");
+    edit.onclick=()=>{
+      $("aliasAddress").textContent=address;
+      $("aliasName").value=name;
+      $("aliasForm").hidden=false;
+      $("aliasName").select();
+    };
+    row.append(info,edit);
+    $("known").append(row);
+  }
+  $("device").disabled=!entries.length;
+  showCurrentDevice();
+}
+function showCurrentDevice(){
+  const name=state.devices[state.address] || "暂无设备";
+  $("deviceName").textContent=name;
+  $("deviceSuffix").textContent=state.address.slice(-5);
+  $("device").setAttribute("aria-label","当前设备："+name+" "+state.address.slice(-5));
+  for(const option of $("deviceOptions").children){
+    option.setAttribute("aria-selected",option.dataset.address===state.address);
+  }
+}
+function closePicker(){
+  $("deviceOptions").hidden=true;
+  $("device").setAttribute("aria-expanded","false");
+  $("device").removeAttribute("aria-activedescendant");
+}
+function highlightOption(option){
+  for(const item of $("deviceOptions").children)item.classList.toggle("highlight",item===option);
+  $("device").setAttribute("aria-activedescendant",option.id);
+  option.scrollIntoView({block:"nearest"});
+}
+function openPicker(){
+  const options=$("deviceOptions");
+  if(!options.children.length)return;
+  options.hidden=false;
+  $("device").setAttribute("aria-expanded","true");
+  highlightOption(options.querySelector('[aria-selected="true"]') || options.firstElementChild);
+}
+async function selectOption(option){
+  closePicker();
+  $("device").focus();
+  if(!option || option.dataset.address===state.address)return;
+  state.address=option.dataset.address;
+  showCurrentDevice();
+  try{await loadRows()}catch(error){msg(error.message)}
+}
+$("device").onclick=()=>{$("deviceOptions").hidden?openPicker():closePicker()};
+$("deviceOptions").onclick=e=>{
+  const option=e.target.closest('[role="option"]');
+  if(option)selectOption(option);
+};
+$("device").onkeydown=e=>{
+  const options=$("deviceOptions");
+  if(e.key==="Escape" && !options.hidden){e.preventDefault();closePicker();return}
+  if(e.key==="Tab"){closePicker();return}
+  if(!options.hidden && ["Enter"," "].includes(e.key)){
+    e.preventDefault();selectOption(options.querySelector(".highlight"));return;
+  }
+  if(!["ArrowDown","ArrowUp","Home","End"].includes(e.key))return;
+  e.preventDefault();
+  if(options.hidden){openPicker();return}
+  const current=options.querySelector(".highlight");
+  const target={Home:options.firstElementChild,End:options.lastElementChild,
+                ArrowDown:current.nextElementSibling,ArrowUp:current.previousElementSibling}[e.key];
+  if(target)highlightOption(target);
+};
+document.addEventListener("pointerdown",e=>{if(!$("picker").contains(e.target))closePicker()});
+$("device").onblur=closePicker;
+$("deviceOptions").onmousedown=e=>e.preventDefault();
+$("period").onclick=e=>{
+  const period=e.target.dataset.p;
+  if(!period || period===state.period)return;
+  state.period=period;
+  const anchor=state.anchor??midnight(Date.now()+8*hourMs);
+  setWindow(naturalStart(anchor,period),anchor);
+  render();
+};
+$("resolution").onclick=e=>{
+  if(!e.target.dataset.unit)return;
+  if(e.target.hidden)return;
+  state.units[state.period]=e.target.dataset.unit;
+  if(state.period==="week" && displayUnit()==="day")setWindow(midnight(state.start));
+  render();
+};
+$("date").onchange=()=>{
+  if(!$("date").value)return;
+  setWindow(Date.parse($("date").value+"T00:00:00Z"));
+  render();
+};
+for(const [id,dir] of [["prev",-1],["next",1]])bind(id,()=>{
+  const aligned=naturalStart(state.start,state.period);
+  const target=dir<0 && aligned<state.start?aligned:movePeriod(aligned,dir,state.period);
+  setWindow(target);
+  render();
+});
+function pan(dir){
+  if(state.period==="all")return;
+  const unit=displayUnit();
+  const months=unit==="month";
+  const target=months?monthShift(state.start,dir,state.preferredDay):
+    state.start+dir*(unit==="hour"?hourMs:dayMs);
+  setWindow(target,target,months?state.preferredDay:new Date(target).getUTCDate());
+  render();
+}
+bind("nextPage",()=>{state.page++;table()});bind("previousPage",()=>{state.page--;table()});
+for(const id of ["manage","add"])bind(id,()=>{$("dialog").showModal()});
+bind("close",()=>$("dialog").close());
+$("dialog").addEventListener("close",()=>{$("aliasForm").hidden=true});
+bind("cancelAlias",()=>{$("aliasForm").hidden=true});
+$("aliasForm").onsubmit=async event=>{
+  event.preventDefault();
+  const address=$("aliasAddress").textContent;
+  const name=$("aliasName").value.trim();
+  $("saveAlias").disabled=true;
+  try{
+    await standalone.run(async()=>{
+      await standalone.rename(address,name);
+      state.devices[address]=name;deviceList();$("aliasForm").hidden=true;
+      msg("设备别名已更新为「"+name+"」。");
+    });
+  }finally{$("saveAlias").disabled=false}
+};
+for(const id of ["scan","sync","merge"])bind(id,()=>standalone.run(standalone[id]));
+$("form").onsubmit=e=>{e.preventDefault();standalone.run(standalone.register)};
+function pointAt(clientX,rect){
+  const fraction=(clientX-rect.left-axisLabelWidth)/Math.max(1,rect.width-axisLabelWidth-rightInset);
+  return Math.max(0,Math.min(buckets.length-1,Math.round(fraction*(buckets.length-1))));
+}
+const observer=new ResizeObserver(draw);
+for(const item of series){
+  const canvas=$(item.canvas),plot=canvas.parentElement;
+  observer.observe(canvas);
+  plot.onpointermove=e=>{
+    const index=pointAt(e.clientX,canvas.getBoundingClientRect());
+    if(state.selected!==index){state.selected=index;draw()}
+  };
+  plot.onpointerleave=plot.onblur=()=>{state.selected=-1;draw()};
+  plot.onkeydown=e=>{
+    if(!["ArrowLeft","ArrowRight"].includes(e.key))return;
+    e.preventDefault();state.selected=Math.max(0,Math.min(buckets.length-1,state.selected+(e.key==="ArrowRight"?1:-1)));draw();
+  };
+  let accumulated=0,lastWheel=0;
+  plot.addEventListener("wheel",e=>{
+    if(state.period==="all" || state.start===null || e.ctrlKey)return;
+    const delta=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;
+    if(!delta)return;
+    e.preventDefault();
+    const now=performance.now();
+    if(now-lastWheel>180 || Math.sign(delta)!==Math.sign(accumulated))accumulated=0;
+    lastWheel=now;
+    accumulated+=delta*(e.deltaMode===1?32:e.deltaMode===2?100:1);
+    if(Math.abs(accumulated)<24)return;
+    pan(Math.sign(accumulated));
+    accumulated=0;
+    state.selected=pointAt(e.clientX,canvas.getBoundingClientRect());draw();
+  },{passive:false});
+}
+standalone.start().catch(error=>msg(error.message));
+
+</script>
+</body></html>

@@ -1,6 +1,6 @@
 # 温湿度手记
 
-Windows 和 macOS 使用同一份 [ThermoJournal.html](ThermoJournal.html)。双击文件即可打开，页面包含全部图表与程序代码。分享时只需发送该文件。
+在 Windows 或 macOS 上打开[温湿度手记网页版](https://yummy-he.github.io/ThermoJournal/)，或下载 [ThermoJournal.html](ThermoJournal.html) 后双击离线使用。两个版本都将记录保存在你选定的本地文件夹中。
 
 ## 第一次使用
 
@@ -20,7 +20,7 @@ Windows 和 macOS 使用同一份 [ThermoJournal.html](ThermoJournal.html)。双
 
 ## 开发
 
-`app/web/` 存放页面资源。`python app/build_web.py` 重新生成可分享的单文件网页。个人 `data/`、独立 CSV、蓝牙原始记录、虚拟环境、EXE 和 ZIP 已在 Git 中忽略。
+`app/web/` 存放页面资源。`python app/build_web.py` 同时生成离线版 `ThermoJournal.html` 和内容相同的网页版 `docs/index.html`。将构建结果提交并推送到 `main` 后，GitHub Pages 会从 `docs/` 自动部署。个人 `data/`、独立 CSV、蓝牙原始记录、虚拟环境、EXE 和 ZIP 已在 Git 中忽略。
 
 
 运行回归测试：

@@ -24,7 +24,11 @@ def build():
         document = document.replace(f'<script defer src="{name}.js"></script>', "")
     document = document.replace('<head>', '''<head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">''')
     document = document.replace("</body>", "\n".join(scripts) + "\n</body>")
-    (ROOT / "ThermoJournal.html").write_bytes(document.encode("utf-8"))
+    html = document.encode("utf-8")
+    (ROOT / "ThermoJournal.html").write_bytes(html)
+    pages = ROOT / "docs"
+    pages.mkdir(exist_ok=True)
+    (pages / "index.html").write_bytes(html)
 
 
 if __name__ == "__main__":
