@@ -20,7 +20,14 @@
 
 ## 开发
 
-`app/web/` 存放页面资源。`python app/build_web.py` 同时生成离线版 `ThermoJournal.html` 和内容相同的网页版 `docs/index.html`。将构建结果提交并推送到 `main` 后，GitHub Pages 会从 `docs/` 自动部署。个人 `data/`、独立 CSV、蓝牙原始记录、虚拟环境、EXE 和 ZIP 已在 Git 中忽略。
+`app/web/` 存放页面资源。`python app/build_web.py` 同时生成离线版 `ThermoJournal.html` 和内容相同的网页版 `docs/index.html`。在 `main` 提交修改后，运行以下命令更新仓库和线上页面。第二条命令将 `docs/` 的内容推送到 GitHub Pages 使用的发布分支。
+
+```sh
+git push origin main
+git subtree push --prefix=docs origin gh-pages
+```
+
+个人 `data/`、独立 CSV、蓝牙原始记录、虚拟环境、EXE 和 ZIP 已在 Git 中忽略。
 
 
 运行回归测试：
