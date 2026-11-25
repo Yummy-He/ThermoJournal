@@ -1,0 +1,17 @@
+# Personal device archives, including exports saved beside the app
+data/
+数据/
+*.csv
+*.partial
+.merge.lock
+
+# Local Python environment, caches and Windows distribution artifacts
+.venv/
+__pycache__/
+*.pyc
+*.exe
+*.zip
+build/
+dist/
+.DS_Store
+Thumbs.db
