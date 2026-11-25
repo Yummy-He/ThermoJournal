@@ -14,12 +14,11 @@ def build():
         if "</script" in code.lower():
             raise ValueError(f"Inline script terminator in {name}.js")
         scripts.append("<script>\n" + code + "\n</script>")
-    document = template.replace('<link rel="stylesheet" href="/ui.css">',
+    document = template.replace('<link rel="stylesheet" href="ui.css">',
                                 "<style>\n" + css + "\n</style>")
-    document = document.replace('<script defer src="/ui.js"></script>', "")
+    for name in ("archive", "bluetooth", "portable", "ui"):
+        document = document.replace(f'<script defer src="{name}.js"></script>', "")
     document = document.replace('<head>', '''<head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">''')
-    document = document.replace('id="download">', 'id="download" href="#">')
-    document = document.replace('href="/download" id="allcsv"', 'href="#" id="allcsv"')
     document = document.replace("</body>", "\n".join(scripts) + "\n</body>")
     (ROOT / "ThermoJournal.html").write_bytes(document.encode("utf-8"))
 

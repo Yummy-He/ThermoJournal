@@ -4,9 +4,6 @@ const standalone = (()=>{
   const connected=new Map();
   const canWrite=()=>Boolean(root && !busy);
   const hasBluetooth=Boolean(navigator.bluetooth?.requestDevice);
-  function snapshot(){
-    return {devices:Object.fromEntries([...archive].map(([key,d])=>[key,d.name])),task:{busy,revision:0}};
-  }
   function records(address){
     return (archive.get(address)?.rows || []).map(r=>[r[1],...r.slice(2,6).map(Number)]);
   }
@@ -33,7 +30,7 @@ const standalone = (()=>{
   }
   async function redraw(reset=false){
     if(!archive.has(state.address))state.address=archive.keys().next().value || "";
-    state.devices=snapshot().devices;
+    state.devices=Object.fromEntries([...archive].map(([key,d])=>[key,d.name]));
     deviceList();
     await loadRows(!reset);
     controls();
@@ -149,11 +146,6 @@ const standalone = (()=>{
     link.click();setTimeout(()=>URL.revokeObjectURL(link.href),30000);
   }
   async function start(){
-    $("archiveActions").hidden=false;
-    $("archiveTargetLabel").hidden=false;
-    $("scan").textContent="选择蓝牙设备";
-    $("pairHelp").textContent="将温湿度计放在电脑旁，退出米家设备页。首次使用此浏览器时，选择实物，再关联已有档案或新建设备。";
-    $("macLabel").textContent="已知 MAC 地址（可选）";
     $("archiveTarget").onchange=updateForm;
     $("openFolder").onclick=()=>run(openFolder);
     $("importCsv").onclick=()=>$("csvFiles").click();
@@ -163,7 +155,7 @@ const standalone = (()=>{
     $("dialog").addEventListener("close",()=>{pending=null;controls()});
     await redraw(true);
   }
-  return {snapshot,records,controls,start,run,rename,register,sync,
+  return {records,start,run,rename,register,sync,
     scan:async()=>offer(await SensorHistory.choose(),""),
     merge:async()=>{await change(fresh=>Archive.persist(root,fresh));await redraw();msg("所有设备档案已重新合并。")}};
 })();

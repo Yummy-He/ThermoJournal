@@ -14,17 +14,17 @@ Windows 和 macOS 使用同一份 [ThermoJournal.html](ThermoJournal.html)。双
 ## 查看和备份
 
 - Safari 等浏览器可点「查看 CSV」打开设备历史或合并总表并浏览趋势。此模式只在内存中读表。刷新蓝牙及直接写入目录需要支持 Web Bluetooth 和目录写入的浏览器。若浏览器限制本地文件的蓝牙功能，可在受信任的 HTTPS 静态站点提供同一个 HTML，数据仍写入自己选定的本地目录。
-- `data/all_devices.csv` 为合并总表。`data/<设备标识>/` 中保存 `device.json`、`history.csv` 和 `raw_exports/`。旧版 Windows 档案可以直接读取。新建的浏览器标识供网页版使用；若仍需运行旧 EXE，请给旧版单独保留一份数据副本。
+- `data/all_devices.csv` 为合并总表。`data/<设备标识>/` 中保存 `device.json`、`history.csv` 和 `raw_exports/`。旧版 Windows 档案可以直接读取。
 - 完整原始导出已保存而汇总写入失败时，关闭占用 CSV 的程序，再点「设备管理 → 重新合并」。备份或搬迁前，等待当前写入完成。同一个目录请使用一个应用实例进行采集。
-- 两张图同步显示温度和湿度，滚轮按视图的显示单位平移，日期框可以指定起始日。
+- 周视图默认按日，也可选择「按小时」查看连续七天的 168 个小时。两图共用时间轴，滚轮按当前显示单位平移，日期框两侧的箭头按自然周期跳转。
 
 ## 开发
 
-`app/web/` 存放页面资源。`python app/build_web.py` 重新生成可分享的单文件网页。旧版 Windows 本机服务的源码作为独立入口保留。个人 `data/`、独立 CSV、蓝牙原始记录、虚拟环境、EXE 和 ZIP 已在 Git 中忽略。
+`app/web/` 存放页面资源。`python app/build_web.py` 重新生成可分享的单文件网页。个人 `data/`、独立 CSV、蓝牙原始记录、虚拟环境、EXE 和 ZIP 已在 Git 中忽略。
 
 
 运行回归测试：
 
 ```sh
-node --test tests/standalone.mjs tests/directory.mjs
+node --test tests/standalone.mjs tests/directory.mjs tests/week.mjs
 ```
