@@ -1,4 +1,5 @@
 "use strict";
+const webMode=typeof standalone!=="undefined";
 const $ = id => document.getElementById(id);
 const dayMs = 86400000, hourMs = dayMs/24;
 const state = {address:"", devices:{}, rows:[], period:"month", start:null, anchor:null, preferredDay:1, units:{half:"day",year:"month"}, page:0, selected:-1, task:{}, revision:null};
@@ -188,7 +189,7 @@ function render(){
 }
 async function loadRows(keepDate=false){
   const address=state.address;
-  const rows=address?await api("/api/records?address="+encodeURIComponent(address)):[];
+  const rows=address?(webMode?standalone.records(address):await api("/api/records?address="+encodeURIComponent(address))):[];
   if(address!==state.address)return;
   state.rows=rows;
   if(!keepDate || state.start===null){
@@ -198,7 +199,7 @@ async function loadRows(keepDate=false){
   $("summary").textContent=rows.length?"已归档 "+num(rows.length)+" 条小时记录 · "+rows[0][0].slice(0,10)+" 起":address?"设备已登记，刷新蓝牙数据后可查看记录。":"添加第一台温湿度计，开始查看历史记录。";
   $("lcdT").textContent=rows.length?num(rows.at(-1)[2]):"--";$("lcdH").textContent=rows.length?rows.at(-1)[4]:"--";
   $("lcdCaption").textContent=rows.length?rows.at(-1)[0].slice(5,16).replace("T"," ")+" · 小时最高值":"最近一小时 · 最高值";
-  $("download").setAttribute("aria-disabled",!rows.length);$("download").href="/download?address="+encodeURIComponent(address);
+  $("download").setAttribute("aria-disabled",!rows.length);if(!webMode)$("download").href="/download?address="+encodeURIComponent(address);
   render();
 }
 function deviceList(){
@@ -356,6 +357,14 @@ $("aliasForm").onsubmit=async event=>{
   const name=$("aliasName").value.trim();
   $("saveAlias").disabled=true;
   try{
+    if(webMode){
+      await standalone.run(async()=>{
+        await standalone.rename(address,name);
+        state.devices[address]=name;deviceList();$("aliasForm").hidden=true;
+        msg("设备别名已更新为「"+name+"」。");
+      });
+      return;
+    }
     await post("/api/devices/rename",{address,name});
     state.devices[address]=name;
     deviceList();
@@ -365,11 +374,13 @@ $("aliasForm").onsubmit=async event=>{
   finally{$("saveAlias").disabled=false}
 };
 for(const id of ["scan","sync","merge"])bind(id,async()=>{
+  if(webMode){await standalone.run(standalone[id]);return}
   if(id==="scan")$("found").replaceChildren();
   await post("/api/"+id,id==="sync"?{address:state.address}:{});await poll();
 });
 $("form").onsubmit=async e=>{
   e.preventDefault();
+  if(webMode){await standalone.run(standalone.register);return}
   try{const address=$("mac").value.trim().replaceAll("-",":").toUpperCase();
     await post("/api/devices",{name:$("name").value,address});state.address=address;await poll(true);
     $("dialog").close();$("form").reset();msg("设备已保存，点击「刷新蓝牙数据」读取历史记录。");
@@ -412,5 +423,6 @@ async function monitor(){
   try{await poll(state.revision===null)}catch(e){msg("无法读取本地服务。"+e.message)}
   setTimeout(monitor,state.task.busy?900:3000);
 }
-monitor();
+if(webMode)standalone.start().catch(error=>msg(error.message));
+else monitor();
 
