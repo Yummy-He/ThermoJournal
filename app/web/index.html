@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#ff6347"><title>温湿度手记</title><link rel="icon" href="data:,"><link rel="stylesheet" href="ui.css"><script defer src="archive.js"></script><script defer src="bluetooth.js"></script><script defer src="portable.js"></script><script defer src="ui.js"></script></head>
+<meta name="theme-color" content="#ff6347"><title>温湿度手记</title><link rel="icon" type="image/png" sizes="32x32" href="favicon.png"><link rel="stylesheet" href="ui.css"><script defer src="archive.js"></script><script defer src="bluetooth.js"></script><script defer src="portable.js"></script><script defer src="lcd.js"></script><script defer src="ui.js"></script></head>
 <body><header><div class="wrap nav"><a class="brand" href="#top"><i class="brandmark" aria-hidden="true"><b></b><b></b><b></b></i>温湿度手记</a><nav><a href="#trends">趋势</a><a href="#records">记录</a><button id="manage">设备管理</button></nav></div></header>
 <main id="top" class="wrap">
 <section class="hero"><div class="intro"><div class="picker" id="picker">
@@ -9,7 +9,22 @@
 <h1>环境<span>趋势</span></h1><p id="summary">正在读取本地记录…</p>
 <div id="archiveActions"><div class="actions"><button class="secondary" id="openFolder">打开 data 文件夹</button><button class="secondary" id="importCsv">查看 CSV</button></div><input type="file" accept=".csv,text/csv" multiple hidden id="csvFiles"><p><span id="archiveMode"></span> <span id="capability"></span></p></div>
 <div class="actions"><button class="primary" id="sync">刷新蓝牙数据</button><button class="secondary" id="add">＋ 添加设备</button></div></div>
-<div class="art" aria-label="最近一小时的最高温度与最高湿度"><div class="orbit"></div><div class="sensor"><div class="lcd"><div><strong id="lcdT">--</strong><small>°C</small></div><div class="lcdBottom"><b class="face" aria-hidden="true">☺</b><b id="lcdH">--</b><small>%</small></div></div></div><div class="caption" id="lcdCaption">最近一小时 · 最高值</div></div></section>
+<div class="art"><div class="orbit"></div><div class="sensor">
+<svg class="lcd" viewBox="0 0 120 120" role="img" aria-labelledby="lcdTitle">
+  <title id="lcdTitle">温湿度计，暂无记录</title>
+  <g id="lcdT" fill="currentColor"></g>
+  <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="bevel">
+    <path id="lcdTransfer" class="lcd-idle" d="m103 24 7 7-5 4V21l5 4-7 7" stroke-width="1.8"/>
+    <g stroke-width="1.8"><circle cx="101" cy="49" r="1.5"/><path d="M112 50h-7v10h7"/></g>
+    <g id="lcdFace" class="lcd-idle" stroke-width="2.5">
+      <path d="M15 77q-5 10 0 20m32-20q5 10 0 20"/>
+      <path id="lcdExpression" d="m19 84 3-3 3 3m12 0 3-3 3 3m-16 9h8"/>
+    </g>
+    <g stroke-width="1.7"><path d="m104 96 7-10"/><circle cx="104" cy="87" r="1.5"/><circle cx="111" cy="95" r="1.5"/></g>
+    <g class="lcd-idle" stroke-width="1.5"><rect x="54" y="106" width="11" height="5" rx="1"/><path d="M66.5 107v3"/></g>
+  </g>
+  <g id="lcdH" fill="currentColor"></g>
+</svg></div><div class="caption" id="lcdCaption">最近一小时 · 最高值</div></div></section>
 <p class="notice" id="status" role="status" hidden></p>
 <section id="trends" class="card"><div class="cardhead"><div><h2>历史趋势</h2><p id="dates"></p></div><div class="seg" id="period" aria-label="时间范围"><button data-p="day">日</button><button data-p="week">周</button><button data-p="month">月</button><button data-p="half">半年</button><button data-p="year">年</button><button data-p="all">全部</button></div></div>
 <div class="resolution" id="resolution" hidden><span>显示单位</span><div class="seg"><button data-unit="hour" hidden>按小时</button><button data-unit="day">按日</button><button data-unit="month">按月</button></div></div>

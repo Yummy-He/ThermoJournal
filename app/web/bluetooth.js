@@ -14,7 +14,7 @@ const SensorHistory=(()=>{
     const time=new Date(origin+tick*1000+8*3600000).toISOString().slice(0,19)+"+08:00";
     return [seq,time,low.toFixed(1),high.toFixed(1),dry,wet,tick].map(String);
   }
-  async function collect(device,report){
+  async function collect(device,report,onTransfer=()=>{}){
     let history,onPacket,onLost,timer;
     try{
       const server=await device.gatt.connect();
@@ -25,6 +25,7 @@ const SensorHistory=(()=>{
       const retained=counts.getUint32(4,true);
       if(!retained)return [];
       history=await service.getCharacteristic(uuid("ccbc"));
+      onTransfer(true);
       report("已连接，准备读取 "+retained.toLocaleString()+" 条历史记录。");
       const records=new Map();
       await new Promise((resolve,reject)=>{
@@ -50,6 +51,7 @@ const SensorHistory=(()=>{
       });
       return [...records.values()];
     }finally{
+      onTransfer(false);
       clearTimeout(timer);
       if(onPacket)history.removeEventListener("characteristicvaluechanged",onPacket);
       if(onLost)device.removeEventListener("gattserverdisconnected",onLost);

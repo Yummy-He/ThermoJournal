@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#ff6347"><title>温湿度手记</title><link rel="icon" href="data:,"><style>
-:root{--accent:#FF6347;--ink:#191b21;--muted:#636872;--line:#e4e5e8;--blue:#327f99;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:#f7f8fa;font-size:16px;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,select,input,a{font:inherit;color:inherit}button,a,input,select{touch-action:manipulation}button,select,a[href]{cursor:pointer}button{border:0;background:none}a{text-decoration:none}button:disabled,a[aria-disabled=true]{opacity:.42;cursor:default;pointer-events:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,#plot:focus-visible{outline:3px solid #d64c33;outline-offset:3px}[hidden]{display:none!important}.wrap{width:min(1100px,calc(100% - 64px));margin:auto}header{border-bottom:1px solid var(--line);background:#ffffffec}.nav,.brand,nav,.actions,.picker,.cardhead,.seg,.chartfoot,.steps,.dialoghead,.pages,.tools{display:flex;align-items:center}.nav{height:66px;justify-content:space-between}.brand{font-size:19px;letter-spacing:.055em;font-weight:750;gap:10px}.brandmark{background:var(--accent);border-radius:9px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;gap:3px;transform:rotate(-4deg)}.brandmark b{width:3px;border-radius:5px;background:white;height:8px}.brandmark b:nth-child(2){height:18px}.brandmark b:nth-child(3){height:12px}nav{gap:28px;font-size:14px;font-weight:550}nav button{font-size:inherit;border:1px solid var(--line);background:white;padding:7px 14px;border-radius:20px}.hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:34px 6% 33px 2%;min-height:266px}.intro h1{font-size:clamp(44px,5.4vw,72px);line-height:1.16;letter-spacing:.045em;margin:12px 0}.intro h1 span{color:var(--accent)}p,.chartfoot{color:var(--muted);line-height:1.6}.intro p{margin:0 0 20px}.actions{gap:10px}.primary,.secondary,.pages button,#close,.steps button{border-radius:12px;padding:10px 16px;font-weight:600;font-size:14px}.primary{background:var(--accent);color:#24100d}.primary:hover{background:#ff785f}.secondary,.pages button,.steps button,#close{background:white;border:1px solid var(--line)}.secondary:hover,.pages button:hover{background:#f6f6f7}.art{width:235px;height:188px;position:relative;display:grid;place-items:center;isolation:isolate}.orbit{position:absolute;width:234px;height:118px;border-radius:50%;background:radial-gradient(ellipse,#ffb39e85,transparent 70%);bottom:6px;z-index:-1}.sensor{width:142px;height:142px;border-radius:31px;background:linear-gradient(142deg,#fff 12%,#f7f6f4 68%,#dfdcd8);border:1px solid #dedbd8;box-shadow:inset -3px -5px 3px #cccac6,4px 10px 11px #55504c26,14px 23px 28px #aa76642d;transform:rotate(7deg);display:grid;place-items:center}.lcd{width:100px;height:92px;background:linear-gradient(140deg,#c5c9bd,#d2d6c9);border-radius:9px;box-shadow:inset 1px 2px 4px #6d706760;color:#454b42;font-family:Consolas,monospace;line-height:1;padding:10px 6px;text-align:right}.lcd strong{font-size:34px;letter-spacing:-3px}.lcd small{font-size:12px}.lcdBottom{border-top:1px solid #8b92864a;margin-top:5px;padding-top:4px;font-size:23px}.face{float:left;font-size:19px}.caption{position:absolute;bottom:-3px;font-size:12px;color:#60626a}.card{padding:27px 30px 20px;background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 3px 18px #1e212803;margin-bottom:22px;scroll-margin:18px}.cardhead,.chartfoot,.dialoghead{justify-content:space-between;gap:12px}h2,h3{margin:0;letter-spacing:.045em}h2{font-size:25px}h3{font-size:18px}p{margin:5px 0;font-size:14px}.seg{background:#f0f1f3;border-radius:11px;padding:3px;gap:2px}.seg button{padding:6px 14px;font-size:14px;border-radius:8px}.seg .on{background:white;box-shadow:0 1px 4px #1c202021;font-weight:650}.chartWrap{position:relative;height:225px}canvas{width:100%;height:100%;display:block}.chartfoot{font-size:13px;margin-top:9px}.steps{gap:5px}.steps button{padding:2px 9px;font-size:20px}.steps input,form input{border:1px solid var(--line);border-radius:8px;background:#fff;padding:5px;font-size:14px}.scroll{overflow:auto;margin-top:18px}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:14px;font-variant-numeric:tabular-nums}td,th{padding:10px 12px;text-align:right;border-bottom:1px solid #ededf0}th{font-size:13px;color:var(--muted);background:#f7f8fa;font-weight:550}td:first-child,th:first-child{text-align:left}.pages{justify-content:flex-end;gap:8px;margin-top:12px}.pages button{padding:6px 13px}.notice{padding:10px 16px;background:#fff3ed;border-radius:12px;margin:0 0 14px}.dialoghead{margin-bottom:15px}dialog{width:min(450px,94vw);max-height:90vh;border:1px solid var(--line);border-radius:22px;padding:24px;color:var(--ink);box-shadow:0 20px 90px #25283130}dialog::backdrop{background:#20232b55;backdrop-filter:blur(3px)}#close{padding:2px 10px;font-size:20px}#known{margin-bottom:20px}.knownrow{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:8px 0;font-size:14px}.knownrow small{color:var(--muted)}dialog p{margin:8px 0 12px}form{display:grid;gap:12px;margin:16px 0}form label{display:grid;gap:5px;font-size:14px}form input{padding:9px}.tools{border-top:1px solid var(--line);padding-top:12px;gap:16px;font-size:14px}.tools a,.tools button,#found button{color:#a63a25}#found button{padding:6px;margin:6px 0}main{padding-bottom:32px}
-@media(max-width:690px){.wrap{width:calc(100% - 26px)}.nav{height:56px}nav{gap:12px}.hero{padding:25px 4px;min-height:222px}.art{width:105px;height:120px;flex-shrink:0}.sensor{transform:scale(.72) rotate(7deg);position:absolute}.orbit{width:125px;height:70px}.caption{display:none}.actions{gap:6px}.actions button{padding:8px 10px}.card{padding:18px 14px;border-radius:18px}.cardhead,.chartfoot{flex-wrap:wrap}.seg button{padding:6px 12px}.chartWrap{height:200px}.chartfoot{gap:6px}.intro p{font-size:13px}.pages button{font-size:13px}nav a{display:none}}
+<meta name="theme-color" content="#ff6347"><title>温湿度手记</title><link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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"><style>
+:root{--accent:#FF6347;--ink:#191b21;--muted:#636872;--line:#e4e5e8;--blue:#327f99;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:#f7f8fa;font-size:16px;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,select,input,a{font:inherit;color:inherit}button,a,input,select{touch-action:manipulation}button,select,a[href]{cursor:pointer}button{border:0;background:none}a{text-decoration:none}button:disabled,a[aria-disabled=true]{opacity:.42;cursor:default;pointer-events:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,#plot:focus-visible{outline:3px solid #d64c33;outline-offset:3px}[hidden]{display:none!important}.wrap{width:min(1100px,calc(100% - 64px));margin:auto}header{border-bottom:1px solid var(--line);background:#ffffffec}.nav,.brand,nav,.actions,.picker,.cardhead,.seg,.chartfoot,.steps,.dialoghead,.pages,.tools{display:flex;align-items:center}.nav{height:66px;justify-content:space-between}.brand{font-size:19px;letter-spacing:.055em;font-weight:750;gap:10px}.brandmark{background:var(--accent);border-radius:9px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;gap:3px;transform:rotate(-4deg)}.brandmark b{width:3px;border-radius:5px;background:white;height:8px}.brandmark b:nth-child(2){height:18px}.brandmark b:nth-child(3){height:12px}nav{gap:28px;font-size:14px;font-weight:550}nav button{font-size:inherit;border:1px solid var(--line);background:white;padding:7px 14px;border-radius:20px}.hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:34px 6% 33px 2%;min-height:266px}.intro h1{font-size:clamp(44px,5.4vw,72px);line-height:1.16;letter-spacing:.045em;margin:12px 0}.intro h1 span{color:var(--accent)}p,.chartfoot{color:var(--muted);line-height:1.6}.intro p{margin:0 0 20px}.actions{gap:10px}.primary,.secondary,.pages button,#close,.steps button{border-radius:12px;padding:10px 16px;font-weight:600;font-size:14px}.primary{background:var(--accent);color:#24100d}.primary:hover{background:#ff785f}.secondary,.pages button,.steps button,#close{background:white;border:1px solid var(--line)}.secondary:hover,.pages button:hover{background:#f6f6f7}.art{width:235px;height:188px;position:relative;display:grid;place-items:center;isolation:isolate}.orbit{position:absolute;width:234px;height:118px;border-radius:50%;background:radial-gradient(ellipse,#ffb39e85,transparent 70%);bottom:6px;z-index:-1}.sensor{width:158px;height:158px;display:grid;place-items:center;border:1px solid #d9d8d4;border-radius:19px;background:linear-gradient(145deg,#fff 12%,#faf9f7 72%,#efede9);box-shadow:inset 0 -2px 2px #d7d5d0,0 6px 9px #514b4315,0 14px 22px #82665b24}
+.lcd{display:block;width:104px;height:104px;border:1px solid #a3a79c;border-radius:4px;background:linear-gradient(150deg,#c1c6b9,#d2d7ca 80%);box-shadow:inset 1px 2px 3px #6d76652b;color:#373e35}
+.lcd-idle{opacity:.045}
+.caption{position:absolute;bottom:-3px;font-size:12px;color:#60626a}.card{padding:27px 30px 20px;background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 3px 18px #1e212803;margin-bottom:22px;scroll-margin:18px}.cardhead,.chartfoot,.dialoghead{justify-content:space-between;gap:12px}h2,h3{margin:0;letter-spacing:.045em}h2{font-size:25px}h3{font-size:18px}p{margin:5px 0;font-size:14px}.seg{background:#f0f1f3;border-radius:11px;padding:3px;gap:2px}.seg button{padding:6px 14px;font-size:14px;border-radius:8px}.seg .on{background:white;box-shadow:0 1px 4px #1c202021;font-weight:650}.chartWrap{position:relative;height:225px}canvas{width:100%;height:100%;display:block}.chartfoot{font-size:13px;margin-top:9px}.steps{gap:5px}.steps button{padding:2px 9px;font-size:20px}.steps input,form input{border:1px solid var(--line);border-radius:8px;background:#fff;padding:5px;font-size:14px}.scroll{overflow:auto;margin-top:18px}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:14px;font-variant-numeric:tabular-nums}td,th{padding:10px 12px;text-align:right;border-bottom:1px solid #ededf0}th{font-size:13px;color:var(--muted);background:#f7f8fa;font-weight:550}td:first-child,th:first-child{text-align:left}.pages{justify-content:flex-end;gap:8px;margin-top:12px}.pages button{padding:6px 13px}.notice{padding:10px 16px;background:#fff3ed;border-radius:12px;margin:0 0 14px}.dialoghead{margin-bottom:15px}dialog{width:min(450px,94vw);max-height:90vh;border:1px solid var(--line);border-radius:22px;padding:24px;color:var(--ink);box-shadow:0 20px 90px #25283130}dialog::backdrop{background:#20232b55;backdrop-filter:blur(3px)}#close{padding:2px 10px;font-size:20px}#known{margin-bottom:20px}.knownrow{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:8px 0;font-size:14px}.knownrow small{color:var(--muted)}dialog p{margin:8px 0 12px}form{display:grid;gap:12px;margin:16px 0}form label{display:grid;gap:5px;font-size:14px}form input{padding:9px}.tools{border-top:1px solid var(--line);padding-top:12px;gap:16px;font-size:14px}.tools a,.tools button,#found button{color:#a63a25}#found button{padding:6px;margin:6px 0}main{padding-bottom:32px}
+@media(max-width:690px){.wrap{width:calc(100% - 26px)}.nav{height:56px}nav{gap:12px}.hero{padding:25px 4px;min-height:222px}.art{width:105px;height:120px;flex-shrink:0}.sensor{transform:scale(.64);position:absolute}.orbit{width:125px;height:70px}.caption{display:none}.actions{gap:6px}.actions button{padding:8px 10px}.card{padding:18px 14px;border-radius:18px}.cardhead,.chartfoot{flex-wrap:wrap}.seg button{padding:6px 12px}.chartWrap{height:200px}.chartfoot{gap:6px}.intro p{font-size:13px}.pages button{font-size:13px}nav a{display:none}}
 
 
 .knownrow{align-items:center}.device-id{display:grid;gap:3px;min-width:0;overflow-wrap:anywhere}.edit-alias{flex:none;color:#a63a25;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:white}#aliasForm{padding:14px;background:#f6f7f8;border-radius:12px}.alias-actions{display:flex;gap:8px;justify-content:flex-end}
@@ -39,7 +42,22 @@
 <h1>环境<span>趋势</span></h1><p id="summary">正在读取本地记录…</p>
 <div id="archiveActions"><div class="actions"><button class="secondary" id="openFolder">打开 data 文件夹</button><button class="secondary" id="importCsv">查看 CSV</button></div><input type="file" accept=".csv,text/csv" multiple hidden id="csvFiles"><p><span id="archiveMode"></span> <span id="capability"></span></p></div>
 <div class="actions"><button class="primary" id="sync">刷新蓝牙数据</button><button class="secondary" id="add">＋ 添加设备</button></div></div>
-<div class="art" aria-label="最近一小时的最高温度与最高湿度"><div class="orbit"></div><div class="sensor"><div class="lcd"><div><strong id="lcdT">--</strong><small>°C</small></div><div class="lcdBottom"><b class="face" aria-hidden="true">☺</b><b id="lcdH">--</b><small>%</small></div></div></div><div class="caption" id="lcdCaption">最近一小时 · 最高值</div></div></section>
+<div class="art"><div class="orbit"></div><div class="sensor">
+<svg class="lcd" viewBox="0 0 120 120" role="img" aria-labelledby="lcdTitle">
+  <title id="lcdTitle">温湿度计，暂无记录</title>
+  <g id="lcdT" fill="currentColor"></g>
+  <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="bevel">
+    <path id="lcdTransfer" class="lcd-idle" d="m103 24 7 7-5 4V21l5 4-7 7" stroke-width="1.8"/>
+    <g stroke-width="1.8"><circle cx="101" cy="49" r="1.5"/><path d="M112 50h-7v10h7"/></g>
+    <g id="lcdFace" class="lcd-idle" stroke-width="2.5">
+      <path d="M15 77q-5 10 0 20m32-20q5 10 0 20"/>
+      <path id="lcdExpression" d="m19 84 3-3 3 3m12 0 3-3 3 3m-16 9h8"/>
+    </g>
+    <g stroke-width="1.7"><path d="m104 96 7-10"/><circle cx="104" cy="87" r="1.5"/><circle cx="111" cy="95" r="1.5"/></g>
+    <g class="lcd-idle" stroke-width="1.5"><rect x="54" y="106" width="11" height="5" rx="1"/><path d="M66.5 107v3"/></g>
+  </g>
+  <g id="lcdH" fill="currentColor"></g>
+</svg></div><div class="caption" id="lcdCaption">最近一小时 · 最高值</div></div></section>
 <p class="notice" id="status" role="status" hidden></p>
 <section id="trends" class="card"><div class="cardhead"><div><h2>历史趋势</h2><p id="dates"></p></div><div class="seg" id="period" aria-label="时间范围"><button data-p="day">日</button><button data-p="week">周</button><button data-p="month">月</button><button data-p="half">半年</button><button data-p="year">年</button><button data-p="all">全部</button></div></div>
 <div class="resolution" id="resolution" hidden><span>显示单位</span><div class="seg"><button data-unit="hour" hidden>按小时</button><button data-unit="day">按日</button><button data-unit="month">按月</button></div></div>
@@ -228,7 +246,7 @@ const SensorHistory=(()=>{
     const time=new Date(origin+tick*1000+8*3600000).toISOString().slice(0,19)+"+08:00";
     return [seq,time,low.toFixed(1),high.toFixed(1),dry,wet,tick].map(String);
   }
-  async function collect(device,report){
+  async function collect(device,report,onTransfer=()=>{}){
     let history,onPacket,onLost,timer;
     try{
       const server=await device.gatt.connect();
@@ -239,6 +257,7 @@ const SensorHistory=(()=>{
       const retained=counts.getUint32(4,true);
       if(!retained)return [];
       history=await service.getCharacteristic(uuid("ccbc"));
+      onTransfer(true);
       report("已连接，准备读取 "+retained.toLocaleString()+" 条历史记录。");
       const records=new Map();
       await new Promise((resolve,reject)=>{
@@ -264,6 +283,7 @@ const SensorHistory=(()=>{
       });
       return [...records.values()];
     }finally{
+      onTransfer(false);
       clearTimeout(timer);
       if(onPacket)history.removeEventListener("characteristicvaluechanged",onPacket);
       if(onLost)device.removeEventListener("gattserverdisconnected",onLost);
@@ -397,7 +417,7 @@ const standalone = (()=>{
       connected.set(key,device);
     }
     msg("正在连接 "+archive.get(key).name+"…");
-    const incoming=await SensorHistory.collect(device,msg);
+    const incoming=await SensorHistory.collect(device,msg,active=>$("lcdTransfer").classList.toggle("lcd-idle",!active));
     let added=0;
     await change(async fresh=>{
       if(boundTo(fresh,device)?.address!==key)throw Error("设备关联发生变化，请重新选择。");
@@ -436,6 +456,60 @@ const standalone = (()=>{
     scan:async()=>offer(await SensorHistory.choose(),""),
     merge:async()=>{await change(fresh=>Archive.persist(root,fresh));await redraw();msg("所有设备档案已重新合并。")}};
 })();
+
+</script>
+<script>
+"use strict";
+
+// Clockwise from the top bar, with the centre bar last.
+const lcdBars = [
+  "M2 0h14l-3 3H5z", "M17 1v13l-2 2-1-2V4z",
+  "M15 17l2 2v13l-3-3V19z", "M2 33l3-3h8l3 3z",
+  "M0 19l2-2 1 2v10l-3 3z", "M0 1l3 3v10l-1 2-2-2z",
+  "M2.5 16.5 5 15h7l2.5 1.5L12 18H5z"
+];
+const lcdGlyphs = {
+  "0":"abcdef", "1":"bc", "2":"abdeg", "3":"abcdg", "4":"bcfg",
+  "5":"acdfg", "6":"acdefg", "7":"abc", "8":"abcdefg", "9":"abcdfg", "-":"g"
+};
+
+function drawLcdNumber(group, value, right, top, maxWidth, scale) {
+  let offset = 0;
+  const parts = [];
+  for (const glyph of value) {
+    if (glyph === ".") {
+      parts.push('<rect x="' + offset + '" y="29" width="4" height="4"/>');
+      offset += 7;
+    } else {
+      const bars = lcdBars.map((path, i) => {
+        const active = lcdGlyphs[glyph].includes("abcdefg"[i]);
+        return '<path d="' + path + '"' + (active ? '' : ' class="lcd-idle"') + '/>';
+      });
+      parts.push('<g transform="translate(' + offset + ')">' + bars.join("") + '</g>');
+      offset += 20;
+    }
+  }
+  const width = offset - 3;
+  const scaleX = Math.min(scale, maxWidth / width);
+  group.setAttribute("transform", "translate(" + (right - width * scaleX) + " " + top + ") scale(" + scaleX + " " + scale + ")");
+  group.innerHTML = parts.join("");
+}
+
+function renderLcd(row) {
+  const temperature = row ? Number(row[2]).toFixed(1) : "--.-";
+  const humidity = row ? String(Math.round(row[4])) : "--";
+  drawLcdNumber($("lcdT"), temperature.length <= 6 ? temperature : "--.-", 96, 21, 91, 1.22);
+  drawLcdNumber($("lcdH"), humidity, 96, 74, 43, .72);
+
+  const comfortable = row && row[2] >= 19 && row[2] <= 27 && row[4] >= 20 && row[4] <= 85;
+  $("lcdFace").classList.toggle("lcd-idle", !row);
+  $("lcdExpression").setAttribute("d", comfortable || !row
+    ? "m19 84 3-3 3 3m12 0 3-3 3 3m-16 9h8"
+    : "M19 83h6m12 0h6m-16 10 4-4 4 4");
+  $("lcdTitle").textContent = row
+    ? "最近一条小时记录，最高温度 " + temperature + " °C，最高湿度 " + humidity + "%。按这两个最高值判断：" + (comfortable ? "舒适" : "超出舒适区间")
+    : "温湿度计，暂无记录";
+}
 
 </script>
 <script>
@@ -635,7 +709,7 @@ async function loadRows(keepDate=false){
     setWindow(naturalStart(anchor,state.period),anchor);
   }
   $("summary").textContent=rows.length?"已归档 "+num(rows.length)+" 条小时记录 · "+rows[0][0].slice(0,10)+" 起":address?"设备已登记，刷新蓝牙数据后可查看记录。":"添加第一台温湿度计，开始查看历史记录。";
-  $("lcdT").textContent=rows.length?num(rows.at(-1)[2]):"--";$("lcdH").textContent=rows.length?rows.at(-1)[4]:"--";
+  renderLcd(rows.at(-1));
   $("lcdCaption").textContent=rows.length?rows.at(-1)[0].slice(5,16).replace("T"," ")+" · 小时最高值":"最近一小时 · 最高值";
   $("download").setAttribute("aria-disabled",!rows.length);
   render();

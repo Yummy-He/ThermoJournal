@@ -120,7 +120,7 @@ const standalone = (()=>{
       connected.set(key,device);
     }
     msg("正在连接 "+archive.get(key).name+"…");
-    const incoming=await SensorHistory.collect(device,msg);
+    const incoming=await SensorHistory.collect(device,msg,active=>$("lcdTransfer").classList.toggle("lcd-idle",!active));
     let added=0;
     await change(async fresh=>{
       if(boundTo(fresh,device)?.address!==key)throw Error("设备关联发生变化，请重新选择。");

@@ -37,10 +37,36 @@ test("BLE uses original little-endian packet, distinct indices and disconnect cl
   peer.gatt={connected:false,connect:async()=>{peer.gatt.connected=true;return {getPrimaryService:async()=>service}},
     disconnect:()=>{peer.gatt.connected=false}};
   channel.startNotifications=async()=>{emit(1);emit(1);emit(2)};
-  const rows=await sensor.collect(peer,()=>{});
+  const transfer=[];
+  const rows=await sensor.collect(peer,()=>{},active=>transfer.push(active));
+  assert.deepEqual(transfer,[true,false]);
   assert.equal(rows.length,2);
   assert.deepEqual([...rows[0].slice(2)],["-1.2","4.5","45","52","3600"]);
   assert.equal(peer.gatt.connected,false);
   channel.startNotifications=async()=>{emit(1);peer.dispatchEvent(new Event("gattserverdisconnected"))};
-  await assert.rejects(sensor.collect(peer,()=>{}),/断开/);
+  await assert.rejects(sensor.collect(peer,()=>{},active=>transfer.push(active)),/断开/);
+  assert.deepEqual(transfer,[true,false,true,false]);
+});
+
+test("LCD segments show hourly maxima, signed decimals and inclusive comfort limits",()=>{
+  const nodes=new Map();
+  function get(id){
+    if(!nodes.has(id))nodes.set(id,{setAttribute(key,value){this[key]=value},
+      classList:{toggle(key,value){this[key]=value}}});
+    return nodes.get(id);
+  }
+  const render=vm.runInNewContext(script("lcd")+"\nrenderLcd",{$:get});
+  render();
+  assert.equal(get("lcdFace").classList["lcd-idle"],true);
+  assert.match(get("lcdTitle").textContent,/暂无记录/);
+  for(const [temperature,humidity,comfortable] of [[19,20,true],[27,85,true],[18.9,50,false],
+    [27.1,50,false],[23,19,false],[23,86,false],[-12.3,100,false]]){
+    render(["",0,temperature,0,humidity]);
+    assert.ok(get("lcdTitle").textContent.includes(temperature.toFixed(1)+" °C"));
+    assert.equal(get("lcdTitle").textContent.endsWith("：舒适"),comfortable);
+    assert.match(get("lcdT").innerHTML,/<rect /);
+    assert.equal(get("lcdFace").classList["lcd-idle"],false);
+  }
+  assert.equal(get("lcdT").innerHTML.match(/<g /g).length,4);
+  assert.equal(get("lcdH").innerHTML.match(/<g /g).length,3);
 });

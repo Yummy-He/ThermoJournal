@@ -194,7 +194,7 @@ async function loadRows(keepDate=false){
     setWindow(naturalStart(anchor,state.period),anchor);
   }
   $("summary").textContent=rows.length?"已归档 "+num(rows.length)+" 条小时记录 · "+rows[0][0].slice(0,10)+" 起":address?"设备已登记，刷新蓝牙数据后可查看记录。":"添加第一台温湿度计，开始查看历史记录。";
-  $("lcdT").textContent=rows.length?num(rows.at(-1)[2]):"--";$("lcdH").textContent=rows.length?rows.at(-1)[4]:"--";
+  renderLcd(rows.at(-1));
   $("lcdCaption").textContent=rows.length?rows.at(-1)[0].slice(5,16).replace("T"," ")+" · 小时最高值":"最近一小时 · 最高值";
   $("download").setAttribute("aria-disabled",!rows.length);
   render();
